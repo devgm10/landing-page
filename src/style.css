@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    /* Backgrounds */
+    --bg-light: #FAFAFA;
+    --bg-dark: #0A0A0A;
+
+    /* Brand */
+    --primary: #7C86FF;
+
+    /* Text */
+    --text-light: #111827;
+    --text-dark: #F8FAFC;
+
+    /* Borders */
+    --border-light: #E5E7EB;
+    --border-dark: #1F2937;
+}
+
+@theme {
+    --color-primary: #7C86FF;
+
+    --color-background-light: #FAFAFA;
+    --color-background-dark: #0A0A0A;
+}
+
+html.dark {
+    background-color: var(--bg-dark);
+}
+
+html.dark body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+
+    background-color: var(--bg-light);
+    color: var(--text-light);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 999px;
+}
