@@ -1,14 +1,19 @@
 <script setup>
+import { ref } from 'vue'
 import ThemeToggle from '@/components/ui/theme/ThemeToggle.vue'
 import LanguageToggle from '@/components/ui/language/LanguageToggle.vue'
 
 import TopbarDesktop from './TopbarDesktop.vue'
 import TopbarMobile from './TopbarMobile.vue'
 
+const activeSection = ref('home')
+
 const scrollToSection = (id) => {
     const section = document.getElementById(id)
 
     if (!section) return
+
+    activeSection.value = id
 
     section.scrollIntoView({
         behavior: 'smooth',
@@ -22,51 +27,62 @@ const scrollToSection = (id) => {
         class="
             sticky
             top-0
-            z-50
-
+            z-40
             border-b
-            border-slate-200
-            dark:border-slate-800
-
-            bg-background-light/80
-            dark:bg-background-dark/80
-
+            border-[var(--color-border-nav)]
+            bg-[var(--color-bg-nav)]
             backdrop-blur-md
+            transition-colors
+            duration-300
         "
     >
         <div
             class="
                 mx-auto
-                flex
+                grid
                 h-16
                 max-w-7xl
+                grid-cols-3
                 items-center
-                justify-between
                 px-4
             "
         >
-            <div
-                class="
-                    font-bold
-                    text-primary
-                "
-            >
-                Gianmarco Linares B.
+            <div class="flex justify-start">
+                <div
+                    @click="scrollToSection('home')"
+                    class="flex items-center gap-2.5 cursor-pointer select-none group"
+                >
+                    <i class="devicon-devicon-plain text-primary text-3xl transition-transform duration-300 group-hover:scale-110"></i>
+                    
+                    <div
+                        class="
+                            font-bold
+                            text-[var(--color-text-nav-hover)]
+                            tracking-tight
+                            hidden sm:block
+                        "
+                    >
+                        DevOps Engineer
+                    </div>
+                </div>
             </div>
 
-            <div class="flex items-center gap-4">
+            <div class="flex justify-center">
                 <TopbarDesktop
+                    :active-section="activeSection"
                     :on-navigate="scrollToSection"
                 />
+            </div>
 
-                <LanguageToggle />
-
+            <div class="flex items-center justify-end gap-3">
                 <ThemeToggle />
-
-                <TopbarMobile
-                    :on-navigate="scrollToSection"
-                />
+                <LanguageToggle />
             </div>
         </div>
     </header>
+
+    <TopbarMobile
+        :active-section="activeSection"
+        :on-navigate="scrollToSection"
+    />
 </template>

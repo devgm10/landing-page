@@ -9,7 +9,6 @@ const applyTheme = (value) => {
         'dark',
         value === 'dark'
     )
-
     localStorage.setItem('theme', value)
 }
 

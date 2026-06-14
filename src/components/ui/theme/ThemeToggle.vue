@@ -1,6 +1,6 @@
 <script setup>
 import { useTheme } from '@/composables/theme/useTheme'
-import { ToggleLeft, ToggleRight } from '@lucide/vue';
+import { Sun, Moon } from '@lucide/vue'
 
 const {
     theme,
@@ -11,24 +11,37 @@ const {
 <template>
     <button
         @click="toggleTheme"
+        type="button"
+        aria-label="Toggle theme"
         class="
+            relative
             flex
+            h-9
+            w-9
             items-center
             justify-center
-            rounded-lg
-            border-slate-300
-            px-3
-            py-2
-            transition
-            hover:opacity-80
+            rounded-xl
+            border-[var(--color-border-nav)]
+            bg-transparent
+            text-[var(--color-text-nav)]
+            cursor-pointer
+            transition-all
+            duration-300
+            ease-out
+            hover:bg-black/5
+            dark:hover:bg-white/5
+            hover:text-[var(--color-text-nav-hover)]
+            active:scale-90
         "
     >
-        <span v-if="theme === 'light'">
-            <ToggleLeft></ToggleLeft>
-        </span>
+        <Sun
+            v-if="theme === 'light'"
+            class="h-[18px] w-[18px] transition-transform duration-500 rotate-0 scale-100"
+        />
 
-        <span v-else>
-            <ToggleRight></ToggleRight>
-        </span>
+        <Moon
+            v-else
+            class="h-[18px] w-[18px] transition-transform duration-500 rotate-0 scale-100 text-amber-400"
+        />
     </button>
 </template>

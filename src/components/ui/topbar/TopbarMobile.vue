@@ -1,80 +1,87 @@
 <script setup>
-import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-
+import * as LucideIcons from '@lucide/vue'
 import { topbarItems } from './topbar.config'
 
 const { t } = useI18n()
 
 defineProps({
+    activeSection: {
+        type: String,
+        required: true,
+    },
     onNavigate: {
         type: Function,
         required: true,
     },
 })
-
-const isOpen = ref(false)
-
-const handleNavigation = (section, navigate) => {
-    navigate(section)
-    isOpen.value = false
-}
 </script>
 
 <template>
-    <div class="md:hidden">
+    <div 
+        class="
+            fixed 
+            bottom-6 
+            left-1/2 
+            z-50 
+            md:hidden
+            
+            flex 
+            -translate-x-1/2 
+            items-center 
+            justify-around
+            
+            rounded-2xl 
+            border 
+            border-[var(--color-border-nav)]
+            bg-[var(--color-bg-nav)]
+            px-4
+            py-2
+            
+            shadow-xl
+            shadow-black/10
+            dark:shadow-black/40
+            backdrop-blur-lg
+            
+            w-[90vw]
+            max-w-md
+        "
+    >
         <button
+            v-for="item in topbarItems"
+            :key="item.section"
+            @click="onNavigate(item.section)"
             class="
-                rounded-lg
-                border
-                border-slate-300
+                flex 
+                flex-col 
+                items-center 
+                justify-center 
+                rounded-xl 
                 px-3
-                py-2
+                py-1.5
+                cursor-pointer
+                transition-all 
+                duration-200
+                active:scale-90
             "
-            @click="isOpen = !isOpen"
+            :class="[
+                activeSection === item.section
+                    ? 'text-[var(--color-primary)]'
+                    : 'text-[var(--color-text-nav)]'
+            ]"
         >
-            ☰
-        </button>
-
-        <div
-            v-if="isOpen"
-            class="
-                absolute
-                top-16
-                right-4
-                z-[100]
-
-                w-52
-
-                rounded-xl
-                border
-
-                border-slate-200
-                dark:border-slate-800
-
-                bg-white
-                dark:bg-background-dark
-
-                shadow-lg
-            "
-        >
-            <button
-                v-for="item in topbarItems"
-                :key="item.section"
-                class="
-                    block
-                    w-full
-                    px-4
-                    py-3
-                    text-left
-
-                    hover:bg-slate-100
-                    dark:hover:bg-slate-900
-                "
-                @click="handleNavigation(item.section, onNavigate)"
+            <component 
+                :is="LucideIcons[item.iconName]" 
+                class="w-5 h-5 transition-transform duration-200"
+                :class="{ 'scale-110': activeSection === item.section }"
+                :stroke-width="activeSection === item.section ? 2.5 : 2"
+            />
+            <span 
+                class="mt-1 text-[10px] tracking-tight uppercase"
+                :class="{ 'font-semibold': activeSection === item.section }"
             >
-                {{ t(item.key) }}
-            </button>
-        </div>
+                {{ t(item.key).split('.')[1] || t(item.key) }}
+            </span>
+        </button>
     </div>
 </template>
