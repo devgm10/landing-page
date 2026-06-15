@@ -19,6 +19,9 @@
     /* Mapeo nativo para backgrounds generales */
     --color-background-light: #FAFAFA;
     --color-background-dark: #0B0F19; /* Negro azulado medianoche profundo */
+
+    /* Registramos un breakpoint custom llamado 'nav' en 860px */
+    --breakpoint-nav: 860px;
 }
 
 /* Sobrescritura de variables dinámicas cuando se activa la clase .dark */

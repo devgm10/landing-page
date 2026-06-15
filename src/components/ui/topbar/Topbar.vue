@@ -48,48 +48,27 @@ const scrollToSection = (id) => {
             duration-300
         "
     >
-        <div
-            class="
-                mx-auto
-                grid
-                h-16
-                max-w-7xl
-                grid-cols-3
-                items-center
-                px-4
-            "
-        >
-            <div class="flex justify-start">
-                <div
-                    @click="scrollToSection('home')"
-                    class="flex items-center gap-2.5 cursor-pointer select-none group"
-                >
+        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
+            
+            <div class="flex-shrink-0">
+                <div @click="scrollToSection('home')" class="flex items-center gap-2.5 cursor-pointer select-none group">
                     <i class="devicon-devicon-plain text-primary text-3xl transition-transform duration-300 group-hover:scale-110"></i>
-                    
-                    <div
-                        class="
-                            font-bold
-                            text-primary
-                            tracking-tight
-                            hidden sm:block
-                        "
-                    >
+                    <div class="font-bold text-primary tracking-tight hidden sm:block">
                         GLB
                     </div>
                 </div>
             </div>
 
-            <div class="flex justify-center">
+            <div class="hidden nav:flex flex-1 justify-center px-4">
                 <TopbarDesktop
                     :active-section="activeSection"
                     :on-navigate="scrollToSection"
                 />
             </div>
 
-            <div class="flex items-center justify-end gap-3">
+            <div class="flex items-center justify-end gap-3 flex-shrink-0">
                 <ThemeToggle />
                 <LanguageToggle />
-
                 <SocialLinks :show-divider="true" />
             </div>
         </div>

@@ -22,7 +22,7 @@ defineProps({
             bottom-6 
             left-1/2 
             z-50 
-            md:hidden
+            nav:hidden
             
             flex 
             -translate-x-1/2 
