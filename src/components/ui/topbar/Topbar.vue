@@ -3,6 +3,7 @@ import { ref } from 'vue'
 
 import ThemeToggle from '@/components/ui/theme/ThemeToggle.vue'
 import LanguageToggle from '@/components/ui/language/LanguageToggle.vue'
+import SocialLinks from '@/components/ui/social/SocialLinks.vue'
 
 import { topbarItems } from './topbar.config'
 import { useScrollObserver } from '@/composables/scroll/useScrollObserver'
@@ -88,6 +89,8 @@ const scrollToSection = (id) => {
             <div class="flex items-center justify-end gap-3">
                 <ThemeToggle />
                 <LanguageToggle />
+
+                <SocialLinks :show-divider="true" />
             </div>
         </div>
     </header>
