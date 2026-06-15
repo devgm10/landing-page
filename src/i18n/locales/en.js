@@ -1,7 +1,9 @@
 export default {
     topbar: {
-        home: 'Home',
-        project: 'Project',
-        stack: 'Stack',
-    },
+        home: "Home",
+        about: "About",
+        stack: "Tech Stack", 
+        projects: "Projects",
+        experience: "Experience"
+    }
 }

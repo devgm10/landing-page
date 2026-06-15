@@ -6,9 +6,9 @@
     --font-sans: "DM Mono", monospace;
     --font-mono: "DM Mono", monospace;
 
-    /* Brand & Accent */
-    --color-primary: #A3B3FF;
-    --color-primary-hover: #636eff;
+    /* Brand & Accent (Azul Pervinca Eléctrico) */
+    --color-primary: #7C86FF;
+    --color-primary-hover: #5B66F5;
 
     /* Semántica de Colores Dinámicos según el Modo */
     --color-bg-nav: rgba(250, 250, 250, 0.75);
@@ -18,16 +18,16 @@
 
     /* Mapeo nativo para backgrounds generales */
     --color-background-light: #FAFAFA;
-    --color-background-dark: #0A0A0A;
+    --color-background-dark: #0B0F19; /* Negro azulado medianoche profundo */
 }
 
 /* Sobrescritura de variables dinámicas cuando se activa la clase .dark */
 @layer base {
     :root.dark {
-        --color-bg-nav: rgba(10, 10, 10, 0.75);
+        --color-bg-nav: rgba(11, 15, 25, 0.75); 
         --color-text-nav: #94A3B8;
         --color-text-nav-hover: #F8FAFC;
-        --color-border-nav: rgba(31, 41, 55, 0.6);
+        --color-border-nav: rgba(30, 41, 59, 0.5); 
     }
 }
 
@@ -58,9 +58,9 @@ html.dark body {
     color: #F8FAFC;
 }
 
-/* Selección Estilizada */
+/* Selección Estilizada sincronizada con el nuevo azul */
 ::selection {
-    background: rgba(124, 134, 255, 0.3);
+    background: rgba(124, 134, 255, 0.2);
     color: inherit;
 }
 
@@ -72,6 +72,6 @@ html.dark body {
     background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: #A3B3FF;
+    background: var(--color-primary);
     border-radius: 999px;
 }

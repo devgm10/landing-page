@@ -1,14 +1,14 @@
 <template>
     <section
-        id="project"
+        id="projects"
         class="
             flex
             min-h-screen
             items-center
             justify-center
 
-            bg-slate-100
-            dark:bg-slate-950
+            bg-background-light
+            dark:bg-background-dark
 
             transition-colors
             duration-300

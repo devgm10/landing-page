@@ -1,9 +1,6 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
 import * as LucideIcons from '@lucide/vue'
 import { topbarItems } from './topbar.config'
-
-const { t } = useI18n()
 
 defineProps({
     activeSection: {
@@ -18,6 +15,7 @@ defineProps({
 </script>
 
 <template>
+    <!-- Dock Flotante Móvil Ultra-Translúcido -->
     <div 
         class="
             fixed 
@@ -29,59 +27,81 @@ defineProps({
             flex 
             -translate-x-1/2 
             items-center 
-            justify-around
+            justify-between
+            gap-1
             
             rounded-2xl 
             border 
-            border-[var(--color-border-nav)]
-            bg-[var(--color-bg-nav)]
-            px-4
-            py-2
+            border-[var(--color-border-nav)]/40
+            bg-[var(--color-bg-nav)]/70
+            p-2
             
-            shadow-xl
-            shadow-black/10
-            dark:shadow-black/40
-            backdrop-blur-lg
+            shadow-lg
+            shadow-black/5
+            dark:shadow-black/20
+            backdrop-blur-xl
             
-            w-[90vw]
-            max-w-md
+            w-[88vw]
+            max-w-sm
+            transition-colors
+            duration-300
         "
     >
         <button
             v-for="item in topbarItems"
             :key="item.section"
             @click="onNavigate(item.section)"
+            type="button"
             class="
+                relative
                 flex 
-                flex-col 
+                h-11
+                w-11
                 items-center 
                 justify-center 
                 rounded-xl 
-                px-3
-                py-1.5
                 cursor-pointer
                 transition-all 
-                duration-200
+                duration-300
+                ease-out
                 active:scale-90
+                group
             "
             :class="[
                 activeSection === item.section
                     ? 'text-[var(--color-primary)]'
-                    : 'text-[var(--color-text-nav)]'
+                    : 'text-[var(--color-text-nav)]/80 hover:text-[var(--color-text-nav-hover)]'
             ]"
         >
+            <!-- Píldora de Fondo Activa Ultra-Suave -->
+            <span 
+                class="
+                    absolute 
+                    inset-0 
+                    rounded-xl 
+                    bg-[var(--color-primary)]/8
+                    transition-all 
+                    duration-300 
+                    ease-out
+                "
+                :class="[
+                    activeSection === item.section 
+                        ? 'scale-100 opacity-100' 
+                        : 'scale-70 opacity-0 group-hover:scale-90 group-hover:opacity-40'
+                ]"
+            />
+
+            <!-- Icono de Lucide con Opacidad Selectiva -->
             <component 
                 :is="LucideIcons[item.iconName]" 
-                class="w-5 h-5 transition-transform duration-200"
-                :class="{ 'scale-110': activeSection === item.section }"
-                :stroke-width="activeSection === item.section ? 2.5 : 2"
+                class="w-5 h-5 z-10 transition-all duration-300 ease-out"
+                :class="[
+                    activeSection === item.section 
+                        ? 'scale-110 opacity-100' 
+                        : 'opacity-70 group-hover:opacity-100'
+                ]"
+                :stroke-width="activeSection === item.section ? 2.25 : 2"
             />
-            <span 
-                class="mt-1 text-[10px] tracking-tight uppercase"
-                :class="{ 'font-semibold': activeSection === item.section }"
-            >
-                {{ t(item.key).split('.')[1] || t(item.key) }}
-            </span>
         </button>
     </div>
 </template>

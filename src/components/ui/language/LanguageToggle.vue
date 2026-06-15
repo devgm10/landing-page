@@ -27,21 +27,40 @@ const toggleLanguage = () => {
             rounded-full
             border
             border-[var(--color-border-nav)]
-            bg-slate-100/80
-            dark:bg-slate-900/50
+            bg-black/[0.04]
+            dark:bg-white/[0.04]
             p-1
-            transition-colors
+            transition-all
             duration-300
             ease-in-out
             outline-none
             active:scale-95
+            group
         "
     >
-        <div class="absolute inset-0 flex items-center justify-between px-2.5 select-none text-[9px] font-bold tracking-wider text-slate-400 dark:text-slate-600">
+        <!-- Textos de fondo con tipografía DM Mono sutil y alineada -->
+        <div 
+            class="
+                absolute 
+                inset-0 
+                flex 
+                items-center 
+                justify-between 
+                px-2.5 
+                select-none 
+                text-[10px] 
+                font-bold 
+                tracking-wider 
+                text-[var(--color-text-nav)] 
+                opacity-40
+                dark:opacity-30
+            "
+        >
             <span>ES</span>
             <span>EN</span>
         </div>
 
+        <!-- Burbuja del switch con tu color primario #FF692A y transiciones elásticas -->
         <div
             class="
                 flex
@@ -56,12 +75,12 @@ const toggleLanguage = () => {
                 font-bold
                 tracking-tight
                 text-[var(--color-primary)]
-                dark:text-white
                 shadow-md
-                transition-transform
+                transition-all
                 duration-300
                 ease-in-out
                 z-10
+                group-hover:text-[var(--color-primary-hover)]
             "
             :class="[
                 language === 'en' ? 'translate-x-7' : 'translate-x-0'

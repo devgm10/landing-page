@@ -1,15 +1,27 @@
 <script setup>
 import { ref } from 'vue'
+
 import ThemeToggle from '@/components/ui/theme/ThemeToggle.vue'
 import LanguageToggle from '@/components/ui/language/LanguageToggle.vue'
+
+import { topbarItems } from './topbar.config'
+import { useScrollObserver } from '@/composables/scroll/useScrollObserver'
 
 import TopbarDesktop from './TopbarDesktop.vue'
 import TopbarMobile from './TopbarMobile.vue'
 
 const activeSection = ref('home')
 
+useScrollObserver(
+    activeSection,
+    topbarItems.map(
+        (item) => item.section
+    )
+)
+
 const scrollToSection = (id) => {
-    const section = document.getElementById(id)
+    const section =
+        document.getElementById(id)
 
     if (!section) return
 
@@ -28,7 +40,6 @@ const scrollToSection = (id) => {
             sticky
             top-0
             z-40
-            border-b
             border-[var(--color-border-nav)]
             bg-[var(--color-bg-nav)]
             backdrop-blur-md
@@ -57,12 +68,12 @@ const scrollToSection = (id) => {
                     <div
                         class="
                             font-bold
-                            text-[var(--color-text-nav-hover)]
+                            text-primary
                             tracking-tight
                             hidden sm:block
                         "
                     >
-                        DevOps Engineer
+                        GLB
                     </div>
                 </div>
             </div>
