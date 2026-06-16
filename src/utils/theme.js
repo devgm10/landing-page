@@ -1,11 +1,7 @@
 export const initializeTheme = () => {
-    const theme =
-        localStorage.getItem('theme') || 'light'
+    const theme = localStorage.getItem('theme') || 'light';
 
-    document.documentElement.classList.toggle(
-        'dark',
-        theme === 'dark'
-    )
+    document.documentElement.classList.toggle('dark', theme === 'dark');
 
-    return theme
-}
+    return theme;
+};

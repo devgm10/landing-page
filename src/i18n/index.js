@@ -1,10 +1,9 @@
-import { createI18n } from "vue-i18n";
+import { createI18n } from 'vue-i18n';
 
 import es from './locales/es';
 import en from './locales/en';
 
-const locale =
-    localStorage.getItem('language') || 'es'
+const locale = localStorage.getItem('language') || 'es';
 
 const i18n = createI18n({
     legacy: false,
@@ -14,6 +13,6 @@ const i18n = createI18n({
         es,
         en,
     },
-})
+});
 
-export default i18n
+export default i18n;

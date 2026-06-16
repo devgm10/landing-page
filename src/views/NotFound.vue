@@ -1,8 +1,5 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
-    <div>
-        Not fount!
-    </div>
+    <div>Not fount!</div>
 </template>

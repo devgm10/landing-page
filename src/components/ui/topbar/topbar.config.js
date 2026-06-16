@@ -4,4 +4,4 @@ export const topbarItems = [
     { key: 'topbar.stack', section: 'stack', iconName: 'SquareTerminal' },
     { key: 'topbar.projects', section: 'projects', iconName: 'FolderCode' },
     { key: 'topbar.experience', section: 'experience', iconName: 'BriefcaseBusiness' },
-]
+];
