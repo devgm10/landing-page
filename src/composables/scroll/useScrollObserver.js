@@ -1,22 +1,29 @@
 import { onMounted, onUnmounted } from 'vue';
 
-export function useScrollObserver(activeSectionRef, sectionIds, options = {}) {
+export function useScrollObserver(activeSectionRef, sectionIds) {
     let observer = null;
 
-    const { rootMargin = '-20% 0px -60% 0px', threshold = 0 } = options;
+    const handleIntersect = () => {
+        const sections = sectionIds
+            .map((id) => document.getElementById(id))
+            .filter(Boolean);
 
-    const handleIntersect = (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0) {
-                activeSectionRef.value = entry.target.id;
+        let currentSection = sections[0];
+
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top <= 150) {
+                currentSection = section;
             }
         });
+
+        activeSectionRef.value = currentSection.id;
     };
 
     onMounted(() => {
         observer = new IntersectionObserver(handleIntersect, {
-            rootMargin,
-            threshold,
+            threshold: 0,
         });
 
         sectionIds.forEach((id) => {
@@ -26,9 +33,16 @@ export function useScrollObserver(activeSectionRef, sectionIds, options = {}) {
                 observer.observe(element);
             }
         });
+
+        window.addEventListener('scroll', handleIntersect, {
+            passive: true,
+        });
+
+        handleIntersect();
     });
 
     onUnmounted(() => {
         observer?.disconnect();
+        window.removeEventListener('scroll', handleIntersect);
     });
 }

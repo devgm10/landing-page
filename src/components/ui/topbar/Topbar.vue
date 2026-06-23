@@ -25,9 +25,22 @@ const scrollToSection = (id) => {
 
     activeSection.value = id;
 
-    section.scrollIntoView({
+    if (id === 'home') {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+
+        return;
+    }
+
+    const y =
+        section.getBoundingClientRect().top +
+        window.pageYOffset;
+
+    window.scrollTo({
+        top: y,
         behavior: 'smooth',
-        block: 'start',
     });
 };
 </script>

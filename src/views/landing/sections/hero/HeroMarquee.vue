@@ -99,6 +99,8 @@ const techStack = [
 
 <style scoped>
 .tech-marquee-mask {
+    overflow: hidden;
+
     mask-image: linear-gradient(
         to right,
         transparent,
@@ -116,23 +118,22 @@ const techStack = [
     );
 }
 
-.animate-fade-in-up {
-    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both !important;
-}
-
 .animate-marquee {
-    display: inline-flex;
-    width: max-content;
+    display: flex;
+    flex-wrap: nowrap;
+    width: fit-content;
+    min-width: 100%;
+    will-change: transform;
     animation: marquee 80s linear infinite;
 }
 
 @keyframes marquee {
     from {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 
     to {
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
