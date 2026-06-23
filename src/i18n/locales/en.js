@@ -11,7 +11,7 @@ export default {
         section: {
             hero: {
                 description:
-                    'Professional with over 4 years of experience in end-to-end application development. Expert in designing scalable architectures using Python and Vue.js, integrating automated CI/CD workflows to ensure maximum system availability.',
+                    '4+ years of experience designing modern applications, automating workflows, and delivering secure, maintainable systems powered by Python, Vue.js, and cloud technologies.',
                 button_lets_talk: "Let's Talk",
                 button_view_projects: 'View Projects',
             },
@@ -22,9 +22,10 @@ export default {
         contact_title: 'Contact',
         contact_sub_title: "Let's talk about vacancies, projects or software ideas.",
         location_title: 'Location',
-        status: 'Available for new challenges',
         send: 'Send message',
         placeholder_email: "you{'@'}email.com",
         placeholder_message: 'Tell me about your idea or job opening...',
     },
+
+    status_personal: 'Available for new challenges',
 };

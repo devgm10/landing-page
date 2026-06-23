@@ -20,12 +20,6 @@ import HeroMarquee from './hero/HeroMarquee.vue';
 
             <HeroMetrics />
 
-            <div class="w-full flex items-center justify-center my-4">
-                <div
-                    class="h-[1px] w-full max-w-3xl bg-[var(--color-border-nav)]/60"
-                />
-            </div>
-
             <HeroMarquee />
         </div>
     </section>

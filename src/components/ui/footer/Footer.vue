@@ -101,7 +101,7 @@ const handleContact = () => {
                                     <span
                                         class="text-[10px] font-medium tracking-wider uppercase text-emerald-600 dark:text-emerald-400/80 leading-none"
                                     >
-                                        {{ t('footer.status') }}
+                                        {{ t('status_personal') }}
                                     </span>
                                 </div>
                             </div>
