@@ -10,10 +10,16 @@ export default {
     landing: {
         section: {
             hero: {
-                description:
-                    '4+ years of experience designing modern applications, automating workflows, and delivering secure, maintainable systems powered by Python, Vue.js, and cloud technologies.',
-                button_lets_talk: "Let's Talk",
+                description: '4+ years of experience delivering end-to-end solutions. I combine a business-first mindset with technical precision to drive operational excellence.',
+                button_download: 'Download CV',
                 button_view_projects: 'View Projects',
+                button_lets_talk: "Let's Talk",
+                metrics: {
+                    experiencie: 'Years Experience',
+                    efficiency: 'Higher Efficiency',
+                    deployment: 'Faster Deploys',
+                    cloud: 'Cost Optimization',
+                },
             },
 
             about: {

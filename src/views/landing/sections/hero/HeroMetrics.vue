@@ -1,10 +1,8 @@
 <script setup>
-import {
-    BriefcaseBusiness,
-    Cpu,
-    Zap,
-    ServerCrash,
-} from '@lucide/vue';
+import { BriefcaseBusiness, Cpu, Zap, ServerCrash } from '@lucide/vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -15,7 +13,7 @@ import {
             <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-[var(--color-primary)]/5 rounded-full blur-2xl transition-all duration-500 group-hover/metric:scale-150" />
             <div class="flex flex-col items-start justify-between h-full relative z-10 min-w-0">
                 <p class="text-xl sm:text-3xl lg:text-4xl font-black dark:text-white leading-none tracking-tight transition-transform duration-300 group-hover/metric:scale-[1.03]">+4</p>
-                <p class="text-[9px] sm:text-xs uppercase tracking-widest text-[var(--color-primary)] font-bold mt-2 truncate w-full">Años Exp.</p>
+                <p class="text-[9px] sm:text-xs uppercase tracking-widest text-[var(--color-primary)] font-bold mt-2 truncate w-full">{{ t('landing.section.hero.metrics.experiencie') }}</p>
             </div>
             <div class="flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-[var(--color-primary)]/[0.05] dark:bg-white/[0.03] border border-[var(--color-primary)]/10 dark:border-white/10 text-gray-500 dark:text-gray-400 shadow-inner transition-all duration-500 group-hover/metric:bg-[var(--color-primary)] group-hover/metric:text-white group-hover/metric:-translate-y-1 flex-shrink-0">
                 <BriefcaseBusiness class="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
@@ -28,8 +26,8 @@ import {
         >
             <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-[var(--color-primary)]/5 rounded-full blur-2xl transition-all duration-500 group-hover/metric:scale-150" />
             <div class="flex flex-col items-start justify-between h-full relative z-10 min-w-0">
-                <p class="text-xl sm:text-3xl lg:text-4xl font-black dark:text-white leading-none tracking-tight transition-transform duration-300 group-hover/metric:scale-[1.03]">-30%</p>
-                <p class="text-[9px] sm:text-xs uppercase tracking-widest text-[var(--color-primary)] font-bold mt-2 truncate w-full">Tiempo Admin.</p>
+                <p class="text-xl sm:text-3xl lg:text-4xl font-black dark:text-white leading-none tracking-tight transition-transform duration-300 group-hover/metric:scale-[1.03]">30%</p>
+                <p class="text-[9px] sm:text-xs uppercase tracking-widest text-[var(--color-primary)] font-bold mt-2 truncate w-full">{{ t('landing.section.hero.metrics.efficiency') }}</p>
             </div>
             <div class="flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-[var(--color-primary)]/[0.05] dark:bg-white/[0.03] border border-[var(--color-primary)]/10 dark:border-white/10 text-gray-500 dark:text-gray-400 shadow-inner transition-all duration-500 group-hover/metric:bg-[var(--color-primary)] group-hover/metric:text-white group-hover/metric:-translate-y-1 flex-shrink-0">
                 <Cpu class="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
@@ -42,8 +40,8 @@ import {
         >
             <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-[var(--color-primary)]/5 rounded-full blur-2xl transition-all duration-500 group-hover/metric:scale-150" />
             <div class="flex flex-col items-start justify-between h-full relative z-10 min-w-0">
-                <p class="text-xl sm:text-3xl lg:text-4xl font-black dark:text-white leading-none tracking-tight transition-transform duration-300 group-hover/metric:scale-[1.03]">-85%</p>
-                <p class="text-[9px] sm:text-xs uppercase tracking-widest text-[var(--color-primary)] font-bold mt-2 truncate w-full">Tiempo Deploy</p>
+                <p class="text-xl sm:text-3xl lg:text-4xl font-black dark:text-white leading-none tracking-tight transition-transform duration-300 group-hover/metric:scale-[1.03]">85%</p>
+                <p class="text-[9px] sm:text-xs uppercase tracking-widest text-[var(--color-primary)] font-bold mt-2 truncate w-full">{{ t('landing.section.hero.metrics.deployment') }}</p>
             </div>
             <div class="flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-[var(--color-primary)]/[0.05] dark:bg-white/[0.03] border border-[var(--color-primary)]/10 dark:border-white/10 text-gray-500 dark:text-gray-400 shadow-inner transition-all duration-500 group-hover/metric:bg-[var(--color-primary)] group-hover/metric:text-white group-hover/metric:-translate-y-1 flex-shrink-0">
                 <Zap class="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
@@ -56,8 +54,8 @@ import {
         >
             <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-[var(--color-primary)]/5 rounded-full blur-2xl transition-all duration-500 group-hover/metric:scale-150" />
             <div class="flex flex-col items-start justify-between h-full relative z-10 min-w-0">
-                <p class="text-xl sm:text-3xl lg:text-4xl font-black dark:text-white leading-none tracking-tight transition-transform duration-300 group-hover/metric:scale-[1.03]">-25%</p>
-                <p class="text-[9px] sm:text-xs uppercase tracking-widest text-[var(--color-primary)] font-bold mt-2 truncate w-full">Costos Cloud</p>
+                <p class="text-xl sm:text-3xl lg:text-4xl font-black dark:text-white leading-none tracking-tight transition-transform duration-300 group-hover/metric:scale-[1.03]">25%</p>
+                <p class="text-[9px] sm:text-xs uppercase tracking-widest text-[var(--color-primary)] font-bold mt-2 truncate w-full">{{ t('landing.section.hero.metrics.cloud') }}</p>
             </div>
             <div class="flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-[var(--color-primary)]/[0.05] dark:bg-white/[0.03] border border-[var(--color-primary)]/10 dark:border-white/10 text-gray-500 dark:text-gray-400 shadow-inner transition-all duration-500 group-hover/metric:bg-[var(--color-primary)] group-hover/metric:text-white group-hover/metric:-translate-y-1 flex-shrink-0">
                 <ServerCrash class="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />

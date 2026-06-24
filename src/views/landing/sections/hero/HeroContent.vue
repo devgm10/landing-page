@@ -66,13 +66,13 @@ onUnmounted(() => {
                 Gianmarco Linares Becerra
             </h3>
 
-            <p class="text-sm sm:text-lg text-[var(--color-text-nav-hover)]/80 font-medium leading-relaxed max-w-2xl animate-fade-in-up [animation-delay:150ms]">
+            <p class="text-sm sm:text-lg text-[var(--color-text-nav-hover)]/60 font-medium leading-relaxed max-w-2xl animate-fade-in-up [animation-delay:150ms]">
                 {{ t('landing.section.hero.description') }}
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full animate-fade-in-up [animation-delay:300ms]">
                 <button @click="downloadCV" type="button" class="inline-flex items-center justify-center gap-2 rounded-full border border-gray-300/80 dark:border-transparent bg-transparent dark:bg-white/10 px-7 py-3.5 text-xs font-extrabold tracking-wider uppercase text-[var(--color-primary)] dark:text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50 dark:hover:bg-white/20 active:scale-95 shadow-sm">
-                    <span>Download CV</span>
+                    <span>{{ t('landing.section.hero.button_download') }}</span>
                     <ArrowBigDownDash class="w-4 h-4" />
                 </button>
 

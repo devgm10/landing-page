@@ -10,10 +10,16 @@ export default {
     landing: {
         section: {
             hero: {
-                description:
-                    '+4 años de experiencia diseñando aplicaciones modernas, automatizando procesos y entregando sistemas seguros y mantenibles impulsados por Python, Vue.js y tecnologías cloud.',
+                description: 'Más de 4 años entregando soluciones tecnológicas integrales. Combino visión de negocio y precisión técnica para impulsar la excelencia operativa.',
+                button_download: 'Descargar CV',
                 button_lets_talk: 'Hablemos',
                 button_view_projects: 'Ver Proyectos',
+                metrics: {
+                    experiencie: 'Años de Experiencia',
+                    efficiency: 'Mayor Eficiencia',
+                    deployment: 'Despliegue más Rápido',
+                    cloud: 'Optimización Cloud',
+                },
             },
 
             about: {
