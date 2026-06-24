@@ -1,37 +1,32 @@
 <script setup>
-import {
-    Brain,
-    WandSparkles,
-    Hammer,
-    Rocket,
-} from '@lucide/vue';
+import { computed } from 'vue';
+import { Brain, WandSparkles, Hammer, Rocket } from '@lucide/vue';
+import { useI18n } from 'vue-i18n';
 
-const principles = [
+const { t } = useI18n();
+
+const principles = computed(() => [
     {
         icon: Brain,
-        title: 'Entender',
-        description:
-            'Analizo el problema antes de proponer una solución.',
+        title: t('landing.section.about.principles.analyze.title'),
+        description: t('landing.section.about.principles.analyze.description'),
     },
     {
         icon: WandSparkles,
-        title: 'Diseñar',
-        description:
-            'Transformo procesos complejos en sistemas claros y escalables.',
+        title: t('landing.section.about.principles.design.title'),
+        description: t('landing.section.about.principles.design.description'),
     },
     {
         icon: Hammer,
-        title: 'Construir',
-        description:
-            'Desarrollo productos preparados para crecer y mantenerse en el tiempo.',
+        title: t('landing.section.about.principles.build.title'),
+        description: t('landing.section.about.principles.build.description'),
     },
     {
         icon: Rocket,
-        title: 'Desplegar',
-        description:
-            'Desarrollo pipelines automatizados para un optino despliegue en Dev, Stagin y PRD.',
+        title: t('landing.section.about.principles.deploy.title'),
+        description: t('landing.section.about.principles.deploy.description'),
     },
-];
+]);
 </script>
 
 <template>

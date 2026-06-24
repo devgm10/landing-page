@@ -1,6 +1,9 @@
 <script setup>
 import profileImage from '@/assets/img/profile/profile.png';
 import { Code2, Infinity, Cloud } from '@lucide/vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const skills = [
     { name: 'Full Stack', icon: Code2 },
@@ -105,8 +108,7 @@ const skills = [
                         text-[var(--color-primary)]
                     "
                 >
-                    Construyo soluciones tecnológicas que nacen de entender
-                    problemas reales, no únicamente de escribir código.
+                    {{ t('landing.section.about.story.slogan') }}
                 </h4>
 
                 <!-- Texto -->
@@ -121,24 +123,15 @@ const skills = [
                     "
                 >
                     <p>
-                        Durante más de 4 años he diseñado plataformas
-                        empresariales, sistemas de automatización y soluciones
-                        cloud enfocadas en mejorar procesos y generar impacto
-                        tangible.
+                        {{ t('landing.section.about.story.paragraph.first') }}
                     </p>
 
                     <p>
-                        Me interesa comprender cómo funciona un negocio antes de
-                        diseñar la arquitectura que lo soportará. Porque detrás
-                        de cada aplicación existen personas, operaciones y
-                        decisiones que dependen de que la tecnología funcione de
-                        manera confiable.
+                        {{ t('landing.section.about.story.paragraph.second') }}
                     </p>
 
                     <p>
-                        Desde la experiencia del usuario hasta la
-                        infraestructura, busco construir productos escalables,
-                        mantenibles y preparados para evolucionar.
+                        {{ t('landing.section.about.story.paragraph.third') }}
                     </p>
                 </div>
             </div>

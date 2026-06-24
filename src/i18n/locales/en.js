@@ -25,13 +25,32 @@ export default {
             about: {
                 main_title: 'Beyond the Code',
                 secondary_title: 'About me',
-                description:
-                    {
-                        paragraph_one: 'Software goes far beyond code. Behind every application, platform, or system, there are people, processes, and challenges that need a solution.',
-                        paragraph_two: 'My role is to understand those challenges, simplify complexity, and transform it into technology that creates real impact. I believe the best solutions are not necessarily the most complex ones, but those that solve problems efficiently, scale sustainably, and deliver long-term value.',
-                        paragraph_three: 'I am a Computer Engineer specialized in Full Stack Development, Cloud Architecture, and DevOps. Over the past 4+ years, I have contributed to the development of enterprise platforms, automation systems, and digital products that streamline operations, improve decision-making, and drive business value.',
-                        paragraph_four: 'I am passionate about building technology with purpose. From the experiences users interact with to the infrastructure powering every service, I strive to design solutions that are robust, maintainable, and built to evolve alongside the needs of the business.',
+                story: {
+                    slogan: 'Beyond just code, I design technology aligned with your business objectives.',
+                    paragraph: {
+                        first: 'For over 4 years, I have led the design of enterprise platforms, automation systems, and cloud solutions. My approach transcends mere technical execution, focusing on optimizing critical processes and delivering tangible, quantifiable business impact.',
+                        second: 'I prioritize a deep understanding of strategic business objectives before defining any architecture. I recognize that behind every line of code lie complex operations, teams, and critical decisions that rely on robust, highly reliable technology.',
+                        third: "From end-user experience to deployment infrastructure, my goal is to build scalable and maintainable products. I design solutions prepared not only to operate efficiently today but to evolve and scale as the organization's challenges demand.",
+                    }
+                },
+                principles: {
+                    analyze: {
+                        title: 'Analyze',
+                        description: 'I dissect problems before proposing solutions.',
                     },
+                    design: {
+                        title: 'Design',
+                        description: 'I architect complex processes into scalable, clean systems.',
+                    },
+                    build: {
+                        title: 'Build',
+                        description: 'I build high-performance products built to last.',
+                    },
+                    deploy: {
+                        title: 'Deploy',
+                        description: 'I automate reliable pipelines for seamless multi-environment delivery.',
+                    },
+                },
             },
         },
     },
