@@ -7,9 +7,11 @@ import "slot-text/style.css";
 
 const { t } = useI18n();
 
+const TITLE_ROTATION_INTERVAL_MS = 4000;
+
 const currentTitle = ref("Full Stack Developer");
 let interval = null;
-const isDeveloper = ref(true);
+let isDeveloper = true;
 
 const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
@@ -27,9 +29,9 @@ const downloadCV = () => {
 
 onMounted(() => {
     interval = setInterval(() => {
-        isDeveloper.value = !isDeveloper.value;
-        currentTitle.value = isDeveloper.value ? "Full Stack Developer" : "DevOps Engineer";
-    }, 4000);
+        isDeveloper = !isDeveloper;
+        currentTitle.value = isDeveloper ? "Full Stack Developer" : "DevOps Engineer";
+    }, TITLE_ROTATION_INTERVAL_MS);
 });
 
 onUnmounted(() => {
@@ -55,16 +57,16 @@ onUnmounted(() => {
             <h1 class="text-2xl sm:text-5xl lg:text-6xl font-black tracking-tight animate-fade-in-up text-[var(--color-text-nav-hover)] dark:text-white select-none whitespace-nowrap"
                 style="filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.08))">
                 
-                <div class="flex flex-row items-center justify-center">
-                    <span class="text-xl sm:text-4xl font-medium font-mono text-gray-400/60 dark:text-zinc-500/50 mr-1.5 sm:mr-3 select-none">&lt;</span>
-                    <SlotText :text="currentTitle" class="inline-block" /> 
-                    <span class="text-xl sm:text-4xl font-medium font-mono text-gray-400/60 dark:text-zinc-500/50 ml-1.5 sm:ml-3 select-none">/&gt;</span>
-                </div>
+                <span class="flex flex-row items-center justify-center">
+                    <span aria-hidden="true" class="text-xl sm:text-4xl font-medium font-mono text-gray-400/60 dark:text-zinc-500/50 mr-1.5 sm:mr-3 select-none">&lt;</span>
+                    <SlotText :text="currentTitle" class="inline-block" />
+                    <span aria-hidden="true" class="text-xl sm:text-4xl font-medium font-mono text-gray-400/60 dark:text-zinc-500/50 ml-1.5 sm:ml-3 select-none">/&gt;</span>
+                </span>
             </h1>
 
-            <h3 class="text-2xl sm:text-4xl font-swanky font-extrabold text-[var(--color-primary)] mt-2">
+            <h2 class="text-2xl sm:text-4xl font-swanky font-extrabold text-[var(--color-primary)] mt-2">
                 Gianmarco Linares Becerra
-            </h3>
+            </h2>
 
             <p class="text-sm sm:text-lg text-[var(--color-text-nav-hover)]/60 font-medium leading-relaxed max-w-2xl animate-fade-in-up [animation-delay:150ms]">
                 {{ t('landing.section.hero.description') }}

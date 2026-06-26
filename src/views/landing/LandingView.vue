@@ -11,9 +11,9 @@ import StackSection from './sections/StackSection.vue';
 
     <AboutSection />
 
-    <StackSection />
+    <ExperienceSection />
 
     <ProjectsSection />
 
-    <ExperienceSection />
+    <StackSection />
 </template>

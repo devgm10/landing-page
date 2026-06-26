@@ -1,11 +1,7 @@
 <script setup>
 import { useLanguage } from '@/composables/language/useLanguage';
 
-const { language, setLanguage } = useLanguage();
-
-const toggleLanguage = () => {
-    setLanguage(language.value === 'es' ? 'en' : 'es');
-};
+const { language, toggleLanguage } = useLanguage();
 </script>
 
 <template>

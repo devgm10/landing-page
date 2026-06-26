@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 import ThemeToggle from '@/components/ui/theme/ThemeToggle.vue';
 import LanguageToggle from '@/components/ui/language/LanguageToggle.vue';
@@ -12,6 +13,7 @@ import TopbarDesktop from './TopbarDesktop.vue';
 import TopbarMobile from './TopbarMobile.vue';
 
 const activeSection = ref('home');
+const route = useRoute();
 
 useScrollObserver(
     activeSection,
@@ -51,19 +53,22 @@ const scrollToSection = (id) => {
     >
         <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
             <div class="flex-shrink-0">
-                <div
+                <button
                     @click="scrollToSection('home')"
+                    type="button"
+                    aria-label="Ir al inicio"
                     class="flex items-center gap-2.5 cursor-pointer select-none group"
                 >
                     <i
+                        aria-hidden="true"
                         class="devicon-devicon-plain text-primary text-3xl transition-transform duration-300 group-hover:scale-110"
                     ></i>
-                    <div class="font-bold text-primary tracking-tight hidden sm:block">GLB</div>
-                </div>
+                    <span class="font-bold text-primary tracking-tight hidden sm:block">GLB</span>
+                </button>
             </div>
 
             <div class="hidden nav:flex flex-1 justify-center px-4">
-                <TopbarDesktop :active-section="activeSection" :on-navigate="scrollToSection" />
+                <TopbarDesktop v-if="route.name === 'Home'" :active-section="activeSection" :on-navigate="scrollToSection" />
             </div>
 
             <div class="flex items-center justify-end gap-3 flex-shrink-0">
@@ -74,5 +79,5 @@ const scrollToSection = (id) => {
         </div>
     </header>
 
-    <TopbarMobile :active-section="activeSection" :on-navigate="scrollToSection" />
+    <TopbarMobile v-if="route.name === 'Home'" :active-section="activeSection" :on-navigate="scrollToSection" />
 </template>

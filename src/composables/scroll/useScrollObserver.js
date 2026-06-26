@@ -1,5 +1,7 @@
 import { onMounted, onUnmounted } from 'vue';
 
+const SCROLL_ACTIVE_THRESHOLD_PX = 150;
+
 export function useScrollObserver(activeSectionRef, sectionIds) {
     let observer = null;
 
@@ -13,7 +15,7 @@ export function useScrollObserver(activeSectionRef, sectionIds) {
         sections.forEach((section) => {
             const rect = section.getBoundingClientRect();
 
-            if (rect.top <= 150) {
+            if (rect.top <= SCROLL_ACTIVE_THRESHOLD_PX) {
                 currentSection = section;
             }
         });

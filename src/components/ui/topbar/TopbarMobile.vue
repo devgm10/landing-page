@@ -1,6 +1,8 @@
 <script setup>
-import * as LucideIcons from '@lucide/vue';
+import { useI18n } from 'vue-i18n';
 import { topbarItems } from './topbar.config';
+
+const { t } = useI18n();
 
 defineProps({
     activeSection: {
@@ -24,6 +26,7 @@ defineProps({
             :key="item.section"
             @click="onNavigate(item.section)"
             type="button"
+            :aria-label="t(item.key)"
             class="relative flex h-11 w-11 items-center justify-center rounded-xl cursor-pointer transition-all duration-300 ease-out active:scale-90 group"
             :class="[
                 activeSection === item.section
@@ -43,7 +46,7 @@ defineProps({
 
             <!-- Icono de Lucide con Opacidad Selectiva -->
             <component
-                :is="LucideIcons[item.iconName]"
+                :is="item.icon"
                 class="w-5 h-5 z-10 transition-all duration-300 ease-out"
                 :class="[
                     activeSection === item.section

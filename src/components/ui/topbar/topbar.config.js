@@ -1,7 +1,9 @@
+import { LayoutGrid, IdCardLanyard, BriefcaseBusiness, FolderCode, SquareTerminal } from '@lucide/vue';
+
 export const topbarItems = [
-    { key: 'topbar.home', section: 'home', iconName: 'LayoutGrid' },
-    { key: 'topbar.about', section: 'about', iconName: 'IdCardLanyard' },
-    { key: 'topbar.stack', section: 'stack', iconName: 'SquareTerminal' },
-    { key: 'topbar.projects', section: 'projects', iconName: 'FolderCode' },
-    { key: 'topbar.experience', section: 'experience', iconName: 'BriefcaseBusiness' },
+    { key: 'topbar.home', section: 'home', icon: LayoutGrid },
+    { key: 'topbar.about', section: 'about', icon: IdCardLanyard },
+    { key: 'topbar.experience', section: 'experience', icon: BriefcaseBusiness },
+    { key: 'topbar.projects', section: 'projects', icon: FolderCode },
+    { key: 'topbar.stack', section: 'stack', icon: SquareTerminal },
 ];

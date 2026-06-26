@@ -3,12 +3,14 @@ import { ref, onMounted } from 'vue';
 
 import BaseLoader from '@/components/ui/loading/BaseLoader.vue';
 
+const LOADER_DELAY_MS = 1500;
+
 const isLoading = ref(true);
 
 onMounted(() => {
     setTimeout(() => {
         isLoading.value = false;
-    }, 1500);
+    }, LOADER_DELAY_MS);
 });
 </script>
 

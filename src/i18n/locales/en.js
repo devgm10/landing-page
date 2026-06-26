@@ -52,6 +52,44 @@ export default {
                     },
                 },
             },
+
+            projects: {
+                main_title: 'Featured projects',
+                secondary_title: 'Projects',
+                card: {
+                    button_show_details: 'View details',
+                    button_hide_details: 'Hide details',
+                    label_project: 'Project',
+                    label_architecture: 'Architecture',
+                    label_methodology: 'Methodology',
+                    label_modules: 'Modules',
+                    label_security: 'Security',
+                    label_stack: 'Stack',
+                },
+            },
+
+            stack: {
+                main_title: 'Technology Stack',
+                secondary_title: 'Technologies & Tools',
+                backend: {
+                    description: 'APIs, automation and business logic.',
+                },
+                frontend: {
+                    description: 'Modern, scalable and responsive user interfaces.',
+                },
+                databases: {
+                    description: 'Relational and NoSQL storage systems.',
+                },
+                devops: {
+                    description: 'Automation, CI/CD and observability.',
+                },
+                cloud: {
+                    description: 'Infrastructure and platform services.',
+                },
+                tools: {
+                    description: 'Version control and team collaboration.',
+                },
+            },
         },
     },
 

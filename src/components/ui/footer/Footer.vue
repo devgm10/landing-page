@@ -20,6 +20,7 @@ const handleContact = () => {
 
 <template>
     <footer
+        id="contact"
         class="relative w-full border-t border-[var(--color-border-nav)]/40 bg-[var(--color-bg-nav)]/30 backdrop-blur-xl transition-colors duration-300 overflow-hidden"
     >
         <div

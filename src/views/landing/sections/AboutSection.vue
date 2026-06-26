@@ -38,7 +38,7 @@ const { t } = useI18n();
                 </span>
             </div>
 
-            <h3
+            <h2
                 class="
                     text-3xl
                     sm:text-5xl
@@ -48,7 +48,7 @@ const { t } = useI18n();
                 "
             >
                 {{ t('landing.section.about.main_title') }}
-            </h3>
+            </h2>
         </div>
 
         <AboutStory />

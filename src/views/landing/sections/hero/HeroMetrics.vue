@@ -69,6 +69,12 @@ const { t } = useI18n();
     animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both !important;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up {
+        animation: none !important;
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;

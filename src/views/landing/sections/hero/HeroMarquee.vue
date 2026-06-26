@@ -127,6 +127,12 @@ const techStack = [
     animation: marquee 80s linear infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+        animation: none;
+    }
+}
+
 @keyframes marquee {
     from {
         transform: translate3d(0, 0, 0);
