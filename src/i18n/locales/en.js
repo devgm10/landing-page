@@ -53,6 +53,70 @@ export default {
                 },
             },
 
+            experience: {
+                main_title: 'Professional Journey',
+                secondary_title: 'Experience',
+                list: [
+                    {
+                        company: 'Agrovision Corp.',
+                        role: 'Programmer Analyst',
+                        period: '2022 – 2025',
+                        highlights: [
+                            { 
+                                title: 'Architecture & Leadership',
+                                desc: 'Technical direction of agricultural ERPs and strategic migration to AWS.'
+                            },
+                            {
+                                title: 'Senior Full Stack', 
+                                desc: 'Robust RESTful APIs with Django/PostgreSQL and high-density UI with Vue 3.'
+                            },
+                            {
+                                title: 'Data Engineering', 
+                                desc: 'Advanced ETL pipelines and complex SQL for multidimensional analytics.'
+                            },
+                        ],
+                    },
+                    {
+                        company: 'Agrovision Corp.',
+                        role: 'Programming Assistant',
+                        period: '2021 – 2022',
+                        highlights: [
+                            {
+                                title: 'Infrastructure & DevOps', 
+                                desc: 'Introduction of Docker and standardization of development environments.'
+                            },
+                            {
+                                title: 'Data Migration', 
+                                desc: 'Homogenization and critical data migration from local servers to the cloud.'
+                            },
+                            {
+                                title: 'Git Culture',
+                                desc: 'Implementation of version control and source code traceability.'
+                            },
+                        ],
+                    },
+                    {
+                        company: 'Prosegur S.A.',
+                        role: 'Administrative Assistant',
+                        period: '2018 – 2019',
+                        highlights: [
+                            {
+                                title: 'Data Management', 
+                                desc: 'Auditing of massive datasets and ensuring critical information integrity.'
+                            },
+                            {
+                                title: 'Report Optimization', 
+                                desc: 'Automation of KPIs and streamlining of operational workflows.'
+                            },
+                            {
+                                title: 'Technical Support', 
+                                desc: 'IT incident resolution and end-user support in high-criticality environments.'
+                            },
+                        ],
+                    },
+                ],
+            },
+
             projects: {
                 main_title: 'Featured projects',
                 secondary_title: 'Projects',

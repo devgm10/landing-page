@@ -17,7 +17,7 @@ defineProps({
 </script>
 
 <template>
-    <nav class="hidden nav:flex items-center gap-1"">
+    <nav class="hidden nav:flex items-center gap-1">
         <button
             v-for="item in topbarItems"
             :key="item.section"

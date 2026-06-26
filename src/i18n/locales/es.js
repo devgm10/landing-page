@@ -53,6 +53,69 @@ export default {
                 },
             },
 
+            experience: {
+                main_title: 'Trayectoria Profesional',
+                secondary_title: 'Experiencia',
+                list: [
+                    {
+                        company: 'Agrovision Corp.',
+                        role: 'Analista Programador',
+                        period: '2022 – 2025',
+                        highlights: [
+                            { 
+                                title: 'Arquitectura & Liderazgo',
+                                desc: 'Dirección técnica de ERPs agrícolas y migración a AWS.'
+                            },
+                            {
+                                title: 'Full Stack Senior', 
+                                desc: 'APIs robustas con Django/PostgreSQL y UI con Vue 3.' },
+                            {
+                                title: 'Ingeniería de Datos', 
+                                desc: 'Pipelines ETL avanzados y SQL para analítica multidimensional.'
+                            },
+                        ],
+                    },
+                    {
+                        company: 'Agrovision Corp.',
+                        role: 'Asistente de Programación',
+                        period: '2021 – 2022',
+                        highlights: [
+                            {
+                                title: 'Infraestructura & DevOps', 
+                                desc: 'Introducción de Docker y estandarización de entornos.'
+                            },
+                            {
+                                title: 'Migración de Datos', 
+                                desc: 'Homogeneización y migración crítica a la nube.'
+                            },
+                            {
+                                title: 'Cultura Git',
+                                desc: 'Implementación de control de versiones y trazabilidad.'
+                            },
+                        ],
+                    },
+                    {
+                        company: 'Prosegur S.A.',
+                        role: 'Asistente Administrativo',
+                        period: '2018 – 2019',
+                        highlights: [
+                            {
+                                title: 'Gestión de Datos', 
+                                desc: 'Auditoría de registros masivos y aseguramiento de integridad.'
+                            },
+                            {
+                                title: 'Optimización de Reportes', 
+                                desc: 'Automatización de KPIs y reducción de carga operativa.'
+                            },
+                            {
+                                title: 'Soporte Técnico', 
+                                desc: 'Resolución de incidencias IT y soporte a usuarios finales.'
+                            },
+                        ],
+                    },
+                ],
+            },
+
             projects: {
                 main_title: 'Proyectos destacados',
                 secondary_title: 'Proyectos',
