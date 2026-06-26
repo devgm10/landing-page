@@ -1,16 +1,14 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 import BaseLoader from '@/components/ui/loading/BaseLoader.vue';
 
-const LOADER_DELAY_MS = 1500;
-
+const router = useRouter();
 const isLoading = ref(true);
 
-onMounted(() => {
-    setTimeout(() => {
-        isLoading.value = false;
-    }, LOADER_DELAY_MS);
+router.isReady().then(() => {
+    isLoading.value = false;
 });
 </script>
 
