@@ -67,7 +67,7 @@ const scrollToSection = (id) => {
                 </button>
             </div>
 
-            <div class="hidden nav:flex flex-1 justify-center px-4">
+            <div class="hidden nav:flex flex-1 justify-center">
                 <TopbarDesktop v-if="route.name === 'Home'" :active-section="activeSection" :on-navigate="scrollToSection" />
             </div>
 

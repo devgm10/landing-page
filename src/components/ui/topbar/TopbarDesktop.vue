@@ -25,7 +25,7 @@ defineProps({
             type="button"
             class="
                 relative
-                px-4
+                px-3
                 py-2
                 pb-2
                 text-sm
