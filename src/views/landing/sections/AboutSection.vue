@@ -14,7 +14,7 @@ const { t } = useI18n();
     >
         <!-- Header -->
         <div class="text-center mb-16">
-            <div class="flex items-center justify-center gap-2 mb-4">
+            <div class="flex items-center justify-center gap-2 mb-2">
                 <span class="relative flex h-1.5 w-1.5">
                     <span
                         class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
@@ -41,7 +41,8 @@ const { t } = useI18n();
             <h2
                 class="
                     text-3xl
-                    sm:text-5xl
+                    sm:text-4xl
+                    lg:text-5xl
                     font-swanky
                     text-[var(--color-text-nav-hover)]
                     dark:text-white

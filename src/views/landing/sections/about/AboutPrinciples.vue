@@ -34,6 +34,7 @@ const principles = computed(() => [
         class="
             grid
             grid-cols-1
+            sm:grid-cols-2
             md:grid-cols-4
             gap-4
             mt-20
@@ -68,6 +69,10 @@ const principles = computed(() => [
                     border
                     border-[var(--color-primary)]/10
                     mb-5
+                    transition-all
+                    duration-300
+                    group-hover:bg-[var(--color-primary)]/10
+                    group-hover:border-[var(--color-primary)]/25
                 "
             >
                 <component
@@ -99,7 +104,6 @@ const principles = computed(() => [
                     text-sm
                     leading-relaxed
                     text-[var(--color-text-nav)]
-                    dark:text-zinc-400
                 "
             >
                 {{ item.description }}

@@ -20,6 +20,7 @@ const skills = [
                 flex-col
                 lg:flex-row
                 items-center
+                lg:items-start
                 gap-12
                 lg:gap-16
             "
@@ -63,65 +64,57 @@ const skills = [
                     lg:text-left
                 "
             >
-                <!-- Badge -->
-                <div
+                <!-- Headline — declaración de identidad primero -->
+                <h3
                     class="
-                        flex
-                        justify-center
-                        lg:justify-start
-                    "
-                >
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-6">
-                        <div
-                            v-for="skill in skills"
-                            :key="skill.name"
-                            class="
-                                inline-flex
-                                items-center
-                                gap-2
-                                px-4
-                                py-2
-                                rounded-full
-                                border
-                                border-[var(--color-primary)]/15
-                                bg-[var(--color-primary)]/5
-                                text-[10px]
-                                font-mono
-                                tracking-[0.25em]
-                                text-[var(--color-primary)]
-                                transition-all
-                                hover:border-[var(--color-primary)]/30
-                                hover:bg-[var(--color-primary)]/10
-                            "
-                        >
-                            <component :is="skill.icon" class="w-3 h-3" />
-                            {{ skill.name }}
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Headline -->
-                <h4
-                    class="
-                        text-xl
-                        sm:text-2xl
+                        text-2xl
+                        sm:text-3xl
                         font-semibold
-                        leading-relaxed
+                        leading-snug
                         text-[var(--color-primary)]
+                        mb-4
                     "
                 >
                     {{ t('landing.section.about.story.slogan') }}
-                </h4>
+                </h3>
+
+                <!-- Badges — soporte específico después de la identidad -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-5">
+                    <div
+                        v-for="skill in skills"
+                        :key="skill.name"
+                        class="
+                            inline-flex
+                            items-center
+                            gap-2
+                            px-4
+                            py-2
+                            rounded-full
+                            border
+                            border-[var(--color-primary)]/15
+                            bg-[var(--color-primary)]/5
+                            text-[10px]
+                            font-mono
+                            tracking-[0.25em]
+                            text-[var(--color-primary)]
+                            transition-all
+                            duration-300
+                            hover:border-[var(--color-primary)]/30
+                            hover:bg-[var(--color-primary)]/10
+                        "
+                    >
+                        <component :is="skill.icon" class="w-3 h-3" />
+                        {{ skill.name }}
+                    </div>
+                </div>
 
                 <!-- Texto -->
                 <div
                     class="
-                        mt-6
                         space-y-5
                         text-sm
                         leading-relaxed
                         text-[var(--color-text-nav)]
-                        dark:text-zinc-400
                     "
                 >
                     <p>

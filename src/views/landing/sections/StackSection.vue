@@ -98,7 +98,7 @@ const stackGroups = computed(() => [
     >
         <!-- Header -->
         <div class="text-center mb-16">
-            <div class="flex items-center justify-center gap-2 mb-4">
+            <div class="flex items-center justify-center gap-2 mb-2">
                 <span class="relative flex h-1.5 w-1.5">
                     <span
                         class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
@@ -125,7 +125,8 @@ const stackGroups = computed(() => [
             <h2
                 class="
                     text-3xl
-                    sm:text-5xl
+                    sm:text-4xl
+                    lg:text-5xl
                     font-swanky
                     text-[var(--color-text-nav-hover)]
                     dark:text-white
@@ -136,11 +137,11 @@ const stackGroups = computed(() => [
         </div>
 
         <!-- Categories -->
-        <div class="space-y-10">
+        <div class="space-y-8">
             <div
                 v-for="group in stackGroups"
                 :key="group.title"
-                class="space-y-8"
+                class="space-y-6"
             >
                 <!-- Category Header -->
                 <div class="text-center">
@@ -160,8 +161,7 @@ const stackGroups = computed(() => [
                     <p
                         class="
                             text-sm
-                            text-zinc-500
-                            dark:text-zinc-500
+                            text-[var(--color-text-nav)]
                             max-w-xl
                             mx-auto
                         "
@@ -176,8 +176,8 @@ const stackGroups = computed(() => [
                         flex
                         flex-wrap
                         justify-center
-                        gap-x-8
-                        gap-y-6
+                        gap-x-6
+                        gap-y-5
                     "
                 >
                     <div
@@ -196,9 +196,8 @@ const stackGroups = computed(() => [
                             :class="[
                                 skill.iconClass,
                                 `
-                                text-2xl
+                                text-3xl
                                 text-[var(--color-text-nav-hover)]
-                                dark:text-zinc-300
                                 group-hover:text-[var(--color-primary)]
                                 transition-all
                                 duration-300
@@ -211,8 +210,7 @@ const stackGroups = computed(() => [
                             class="
                                 text-[11px]
                                 font-medium
-                                text-zinc-500
-                                dark:text-zinc-500
+                                text-[var(--color-text-nav)]
                                 text-center
                                 group-hover:text-[var(--color-primary)]
                                 transition-colors
@@ -232,8 +230,7 @@ const stackGroups = computed(() => [
                         w-full
                         bg-gradient-to-r
                         from-transparent
-                        via-zinc-200
-                        dark:via-zinc-800
+                        via-[var(--color-border-nav)]
                         to-transparent
                         mt-8
                     "
