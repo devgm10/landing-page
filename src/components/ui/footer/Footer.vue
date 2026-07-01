@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n';
 import { topbarItems } from '@/components/ui/topbar/topbar.config';
 import SocialLinks from '@/components/ui/social/SocialLinks.vue';
 import { Navigation as NavigationIcon, MapPin } from '@lucide/vue';
+import ContactForm from '@/components/contact/ContactForm.vue';
 
 const { t } = useI18n();
 const currentYear = new Date().getFullYear();
@@ -126,37 +127,7 @@ const handleContact = () => {
                         </button>
                     </div>
 
-                    <form
-                        id="contact-form"
-                        @submit.prevent="handleContact"
-                        class="flex flex-col gap-3.5"
-                    >
-                        <input
-                            v-model="email"
-                            type="email"
-                            required
-                            :placeholder="t('footer.placeholder_email')"
-                            class="w-full rounded-xl border border-[var(--color-border-nav)]/60 bg-black/[0.01] dark:bg-white/[0.01] px-4 py-2.5 text-xs text-[var(--color-text-nav-hover)] placeholder:text-[var(--color-text-nav)]/30 focus:border-[var(--color-primary)] focus:bg-black/[0.03] dark:focus:bg-white/[0.03] focus:outline-none transition-all duration-300"
-                        />
-
-                        <textarea
-                            v-model="message"
-                            rows="3"
-                            required
-                            :placeholder="t('footer.placeholder_message')"
-                            class="w-full rounded-xl border border-[var(--color-border-nav)]/60 bg-black/[0.01] dark:bg-white/[0.01] px-4 py-2.5 text-xs text-[var(--color-text-nav-hover)] placeholder:text-[var(--color-text-nav)]/30 focus:border-[var(--color-primary)] focus:bg-black/[0.03] dark:focus:bg-white/[0.03] focus:outline-none transition-all duration-300 resize-none"
-                        />
-
-                        <button
-                            type="submit"
-                            class="w-full nav:hidden flex items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] px-6 py-2.5 text-xs font-bold tracking-wide uppercase text-white shadow-md shadow-[var(--color-primary)]/20 cursor-pointer group/btn transition-all duration-300 active:scale-95"
-                        >
-                            <span>{{ t('footer.send') }}</span>
-                            <NavigationIcon
-                                class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:rotate-12"
-                            />
-                        </button>
-                    </form>
+                    <ContactForm />
                 </div>
             </div>
 
