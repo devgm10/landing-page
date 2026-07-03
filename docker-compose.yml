@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        VITE_CONTACT_API_URL: ${VITE_CONTACT_API_URL}
+    image: landing-page-gm
+    container_name: landing-page-gm
+    ports:
+      - "8080:80"
