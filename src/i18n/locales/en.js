@@ -288,8 +288,11 @@ export default {
         contact_sub_title: "Let's talk about vacancies, projects or software ideas.",
         location_title: 'Location',
         send: 'Send message',
+        placeholder_name: "Name *",
         placeholder_email: "you{'@'}email.com",
         placeholder_message: 'Tell me about your idea or job opening...',
+        placeholder_company: 'Company (optional)',
+        placeholder_subject: 'Subject (optional)',
     },
 
     status_personal: 'Available for new challenges',
