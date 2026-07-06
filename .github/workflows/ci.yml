@@ -40,7 +40,7 @@ jobs:
                     VITE_CONTACT_API_URL: ${{ secrets.VITE_CONTACT_API_URL }}
 
             -   name: SonarCloud analysis
-                uses: SonarSource/sonarqube-scan-action@v5
+                uses: SonarSource/sonarqube-scan-action@v6
                 env:
                     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
