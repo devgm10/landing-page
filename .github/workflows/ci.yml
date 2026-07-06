@@ -14,6 +14,8 @@ jobs:
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v4
+                with:
+                    fetch-depth: 0
 
             -   name: Setup pnpm
                 uses: pnpm/action-setup@v4
@@ -36,6 +38,17 @@ jobs:
                 run: pnpm build
                 env:
                     VITE_CONTACT_API_URL: ${{ secrets.VITE_CONTACT_API_URL }}
+
+            -   name: SonarCloud analysis
+                uses: SonarSource/sonarqube-scan-action@v5
+                env:
+                    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+            -   name: Check Quality Gate
+                uses: SonarSource/sonarqube-quality-gate-action@master
+                timeout-minutes: 5
+                env:
+                    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     build-and-push:
         name: Build & Push Docker
