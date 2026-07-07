@@ -85,6 +85,23 @@ jobs:
             env:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
+        -   name: Build image for scanning
+            run: |
+                docker build \
+                    --build-arg VITE_CONTACT_API_URL="${{ secrets.VITE_CONTACT_API_URL }}" \
+                    -t landing-scan:latest .
+
+        -   name: Scan Docker image
+            run: snyk container test landing-scan:latest --severity-threshold=high --file=Dockerfile
+            env:
+                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+        -   name: Send image results to dashboard
+            run: snyk container monitor landing-scan:latest --file=Dockerfile
+            if: always()
+            env:
+                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
     build-and-push:
         name: Build & Push Docker
         runs-on: ubuntu-latest
