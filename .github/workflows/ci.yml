@@ -98,7 +98,6 @@ jobs:
 
         -   name: Send image results to dashboard
             run: snyk container monitor landing-scan:latest --file=Dockerfile --project-name=landing-page-image
-            if: always()
             env:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
