@@ -80,7 +80,7 @@ jobs:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
         -   name: Send results to Snyk dashboard
-            run: snyk monitor --all-projects --project-name=landing-page-deps
+            run: snyk monitor --project-name=landing-page-deps
             if: always()
             env:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
