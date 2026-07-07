@@ -80,7 +80,7 @@ jobs:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
         -   name: Send results to Snyk dashboard
-            run: snyk monitor --all-projects
+            run: snyk monitor --all-projects --project-name=landing-page-deps
             if: always()
             env:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
@@ -97,7 +97,7 @@ jobs:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
         -   name: Send image results to dashboard
-            run: snyk container monitor landing-scan:latest --file=Dockerfile
+            run: snyk container monitor landing-scan:latest --file=Dockerfile --project-name=landing-page-image
             if: always()
             env:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
