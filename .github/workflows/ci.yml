@@ -14,6 +14,8 @@ jobs:
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v4
+                with:
+                    fetch-depth: 0
 
             -   name: Setup pnpm
                 uses: pnpm/action-setup@v4
@@ -37,10 +39,72 @@ jobs:
                 env:
                     VITE_CONTACT_API_URL: ${{ secrets.VITE_CONTACT_API_URL }}
 
+            -   name: SonarCloud analysis
+                uses: SonarSource/sonarqube-scan-action@v6
+                env:
+                    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+            -   name: Check Quality Gate
+                uses: SonarSource/sonarqube-quality-gate-action@master
+                timeout-minutes: 5
+                env:
+                    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+    security-snyk:
+        name: Snyk (dependencias)
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Checkout code
+            uses: actions/checkout@v4
+
+        -   name: Setup pnpm
+            uses: pnpm/action-setup@v4
+            with:
+                version: 10
+
+        -   name: Setup Node
+            uses: actions/setup-node@v4
+            with:
+                node-version: 22
+                cache: 'pnpm'
+
+        -   name: Install dependencies
+            run: pnpm install --frozen-lockfile
+
+        -   name: Snyk CLI install
+            run: npm install -g snyk
+
+        -   name: Scan dependencies
+            run: snyk test --severity-threshold=high --all-projects
+            env:
+                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+        -   name: Send results to Snyk dashboard
+            run: snyk monitor --project-name=landing-page-deps
+            if: always()
+            env:
+                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+        -   name: Build image for scanning
+            run: |
+                docker build \
+                    --build-arg VITE_CONTACT_API_URL="${{ secrets.VITE_CONTACT_API_URL }}" \
+                    -t landing-scan:latest .
+
+        -   name: Scan Docker image
+            run: snyk container test landing-scan:latest --severity-threshold=high --file=Dockerfile
+            env:
+                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+        -   name: Send image results to dashboard
+            run: snyk container monitor landing-scan:latest --file=Dockerfile --project-name=landing-page-image
+            env:
+                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
     build-and-push:
         name: Build & Push Docker
         runs-on: ubuntu-latest
-        needs: validate
+        needs: [validate, security-snyk]
         if: github.event_name == 'push'
         environment: production
         steps:
