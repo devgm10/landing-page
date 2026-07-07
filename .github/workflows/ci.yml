@@ -79,6 +79,12 @@ jobs:
             env:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
+        -   name: Send results to Snyk dashboard
+            run: snyk monitor --all-projects
+            if: always()
+            env:
+                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
     build-and-push:
         name: Build & Push Docker
         runs-on: ubuntu-latest
