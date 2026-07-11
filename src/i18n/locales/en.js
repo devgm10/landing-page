@@ -287,6 +287,7 @@ export default {
         contact_title: 'Contact',
         contact_sub_title: "Let's talk about vacancies, projects or software ideas.",
         location_title: 'Location',
+        sending: 'Sending...',
         send: 'Send message',
         placeholder_name: "Name *",
         placeholder_email: "you{'@'}email.com",
