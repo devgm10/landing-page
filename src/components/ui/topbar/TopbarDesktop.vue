@@ -1,8 +1,8 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
-import { topbarItems } from './topbar.config'
+import { useI18n } from 'vue-i18n';
+import { topbarItems } from './topbar.config';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 defineProps({
     activeSection: {
@@ -13,7 +13,7 @@ defineProps({
         type: Function,
         required: true,
     },
-})
+});
 </script>
 
 <template>
@@ -23,47 +23,20 @@ defineProps({
             :key="item.section"
             @click="onNavigate(item.section)"
             type="button"
-            class="
-                relative
-                px-3
-                py-2
-                pb-2
-                text-sm
-                font-medium
-                tracking-wide
-                whitespace-nowrap
-                cursor-pointer
-                transition-all
-                duration-300
-                ease-out
-                active:scale-95
-            "
+            class="nav-item relative px-2.5 py-1.5 font-display text-xs font-semibold uppercase tracking-[0.12em] whitespace-nowrap cursor-pointer transition-colors duration-200 ease-out"
             :class="[
                 activeSection === item.section
-                    ? 'text-[var(--color-primary)] font-bold'
+                    ? 'text-[var(--color-primary)]'
                     : 'text-[var(--color-text-nav)] hover:text-[var(--color-text-nav-hover)]'
             ]"
         >
-            <!-- Texto traducido (Mantiene una única línea y cambia a color primario si está activo) -->
             {{ t(item.key) }}
 
-            <!-- Indicador de Línea Inferior Desplazable -->
+            <!-- Punto indicador del activo -->
             <span
-                class="
-                    absolute
-                    bottom-0
-                    left-0
-                    h-[2px]
-                    bg-[var(--color-primary)]
-                    transition-all
-                    duration-300
-                    ease-in-out
-                "
-                :class="[
-                    activeSection === item.section 
-                        ? 'w-full opacity-100 scale-x-100' 
-                        : 'w-full opacity-0 scale-x-0'
-                ]"
+                aria-hidden="true"
+                class="nav-dot absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 rounded-full bg-[var(--color-primary)] transition-all duration-300 ease-out"
+                :class="activeSection === item.section ? 'opacity-100 scale-100' : 'opacity-0 scale-0'"
             />
         </button>
     </nav>

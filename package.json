@@ -10,7 +10,9 @@
         "check:i18n": "node scripts/check-i18n-parity.js"
     },
     "dependencies": {
+        "@fontsource-variable/inter": "^5.2.8",
         "@fontsource/dm-mono": "^5.2.7",
+        "@fontsource/sora": "^5.2.8",
         "@fontsource/swanky-and-moo-moo": "^5.2.7",
         "@lucide/vue": "^1.17.0",
         "@tailwindcss/vite": "^4.3.0",

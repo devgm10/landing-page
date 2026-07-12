@@ -49,50 +49,21 @@ const techStack = [
 </script>
 
 <template>
-    <div
-        class="w-full overflow-hidden pb-2 mt-2 select-none animate-fade-in-up [animation-delay:600ms] tech-marquee-mask relative z-20"
-    >
-        <div
-            class="flex gap-12 items-center whitespace-nowrap animate-marquee hover:[animation-play-state:paused]"
-        >
-            <div
-                v-for="(tech, index) in techStack"
-                :key="'tech-1-' + index"
-                class="inline-flex items-center gap-2.5 opacity-50 hover:opacity-100 transition-opacity duration-300 group/item"
-            >
-                <i
-                    :class="[
-                        tech.iconClass,
-                        'text-2xl sm:text-3xl transition-transform duration-300 group-hover/item:scale-110 text-[var(--color-text-nav-hover)] hover:text-[var(--color-primary)]',
-                    ]"
-                />
-
-                <span
-                    class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-nav-hover)]"
+    <div class="w-full overflow-hidden pb-2 mt-2 select-none animate-fade-in-up [animation-delay:1500ms] tech-marquee-mask relative z-20">
+        <div class="flex gap-10 items-center whitespace-nowrap animate-marquee hover:[animation-play-state:paused]">
+            <template v-for="dup in 2">
+                <div
+                    v-for="(tech, index) in techStack"
+                    :key="'tech-' + dup + '-' + index"
+                    class="inline-flex items-center gap-2 opacity-40 hover:opacity-100 transition-opacity duration-300 group/item"
+                    :aria-hidden="dup === 2 ? 'true' : undefined"
                 >
-                    {{ tech.name }}
-                </span>
-            </div>
-
-            <div
-                v-for="(tech, index) in techStack"
-                :key="'tech-2-' + index"
-                class="inline-flex items-center gap-2.5 opacity-50 hover:opacity-100 transition-opacity duration-300 group/item"
-                aria-hidden="true"
-            >
-                <i
-                    :class="[
-                        tech.iconClass,
-                        'text-2xl sm:text-3xl transition-transform duration-300 group-hover/item:scale-110 text-[var(--color-text-nav-hover)] hover:text-[var(--color-primary)]',
-                    ]"
-                />
-
-                <span
-                    class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-nav-hover)]"
-                >
-                    {{ tech.name }}
-                </span>
-            </div>
+                    <i :class="[tech.iconClass, 'text-2xl sm:text-3xl transition-all duration-300 group-hover/item:scale-110 group-hover/item:text-[var(--color-primary)] text-[var(--color-text-nav-hover)]']" />
+                    <span v-if="tech.name" class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-nav-hover)]">
+                        {{ tech.name }}
+                    </span>
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -131,6 +102,13 @@ const techStack = [
     .animate-marquee {
         animation: none;
     }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up { animation: none; }
 }
 
 @keyframes marquee {

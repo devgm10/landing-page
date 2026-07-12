@@ -22,55 +22,58 @@ useScrollObserver(
 
 const scrollToSection = (id) => {
     const section = document.getElementById(id);
-
     if (!section) return;
 
     activeSection.value = id;
 
     if (id === 'home') {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
     }
 
-    const y =
-        section.getBoundingClientRect().top +
-        window.pageYOffset;
-
-    window.scrollTo({
-        top: y,
-        behavior: 'smooth',
-    });
+    const y = section.getBoundingClientRect().top + window.pageYOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
 };
 </script>
 
 <template>
     <header
-        class="sticky top-0 z-40 border-[var(--color-border-nav)] bg-[var(--color-bg-nav)] backdrop-blur-md transition-colors duration-300"
+        class="sticky top-0 z-40 border-b border-[var(--color-border-nav)] bg-[var(--color-bg-nav)] backdrop-blur-md transition-colors duration-300"
     >
-        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-            <div class="flex-shrink-0">
+        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+            <!-- Izquierda: logo + separador + nav -->
+            <div class="flex items-center gap-4 min-w-0">
                 <button
                     @click="scrollToSection('home')"
                     type="button"
                     aria-label="Ir al inicio"
-                    class="flex items-center gap-2.5 cursor-pointer select-none group"
+                    class="logo flex items-center gap-2 cursor-pointer select-none group flex-shrink-0"
                 >
                     <i
                         aria-hidden="true"
-                        class="devicon-devicon-plain text-primary text-3xl transition-transform duration-300 group-hover:scale-110"
+                        class="devicon-devicon-plain text-[var(--color-primary)] text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
                     ></i>
-                    <span class="font-bold text-primary tracking-tight hidden sm:block">GLB</span>
+                    <span
+                        class="font-display font-extrabold tracking-tight text-[15px] hidden sm:block text-[var(--color-text-nav-hover)] transition-colors duration-300 group-hover:text-[var(--color-primary)]"
+                    >
+                        GLB
+                    </span>
                 </button>
+
+                <!-- Separador diagonal -->
+                <span
+                    class="hidden nav:block font-mono text-[var(--color-text-nav)]/35 text-base select-none"
+                    aria-hidden="true"
+                >/</span>
+
+                <TopbarDesktop
+                    v-if="route.name === 'Home'"
+                    :active-section="activeSection"
+                    :on-navigate="scrollToSection"
+                />
             </div>
 
-            <div class="hidden nav:flex flex-1 justify-center">
-                <TopbarDesktop v-if="route.name === 'Home'" :active-section="activeSection" :on-navigate="scrollToSection" />
-            </div>
-
+            <!-- Derecha: acciones -->
             <div class="flex items-center justify-end gap-3 flex-shrink-0">
                 <ThemeToggle />
                 <LanguageToggle />
@@ -79,5 +82,9 @@ const scrollToSection = (id) => {
         </div>
     </header>
 
-    <TopbarMobile v-if="route.name === 'Home'" :active-section="activeSection" :on-navigate="scrollToSection" />
+    <TopbarMobile
+        v-if="route.name === 'Home'"
+        :active-section="activeSection"
+        :on-navigate="scrollToSection"
+    />
 </template>

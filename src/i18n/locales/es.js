@@ -34,6 +34,7 @@ export default {
                     }
                 },
                 principles: {
+                    section_label: 'Mi proceso',
                     analyze: {
                         title: 'Entender',
                         description: 'Disecciono los problemas antes de proponer soluciones.',
@@ -124,6 +125,7 @@ export default {
                     label_methodology: 'Metodología',
                     label_modules: 'Módulos',
                     label_stack: 'Stack',
+                    view_detail: 'Ver detalle',
                 },
                 list: [
                     {

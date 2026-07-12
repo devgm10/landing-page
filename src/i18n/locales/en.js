@@ -34,6 +34,7 @@ export default {
                     }
                 },
                 principles: {
+                    section_label: 'My process',
                     analyze: {
                         title: 'Analyze',
                         description: 'I dissect problems before proposing solutions.',
@@ -125,6 +126,7 @@ export default {
                     label_methodology: 'Methodology',
                     label_modules: 'Modules',
                     label_stack: 'Stack',
+                    view_detail: 'View detail',
                 },
                 list: [
                     {

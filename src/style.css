@@ -1,43 +1,144 @@
 @import 'tailwindcss';
-@import "@fontsource/swanky-and-moo-moo";
+@import '@fontsource/dm-mono';
+@import '@fontsource/dm-mono/500.css';
+@import '@fontsource-variable/inter';
+@import '@fontsource/sora/400.css';
+@import '@fontsource/sora/600.css';
+@import '@fontsource/sora/700.css';
+@import '@fontsource/sora/800.css';
+@import '@fontsource/swanky-and-moo-moo';
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    /* Typography */
-    --font-sans: 'DM Mono', monospace;
-    --font-mono: 'DM Mono', monospace;
+    /* ============================================================
+       TIPOGRAFÍA
+       display -> Sora   : títulos, nav, logo (carácter geométrico)
+       sans    -> Inter  : cuerpo y párrafos (legibilidad)
+       mono    -> DM Mono: acentos developer ($ labels, </>, tags)
+       ============================================================ */
+    --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+    --font-display: 'Sora', 'Inter', sans-serif;
+    --font-mono: 'DM Mono', 'SFMono-Regular', Menlo, monospace;
     --font-swanky: 'Swanky and Moo Moo', cursive;
 
-    /* Brand & Accent Unificado (Tu elegante Azul Grisáceo) */
-    --color-primary: #586294;
-    --color-primary-hover: #434c75; /* Sincronizado: Una variante más oscura y elegante para el hover */
+    /* ============================================================
+       NEUTROS — azul-gris frío
+       Fríos a propósito: el fondo es crema (cálido), y esa
+       tensión cálido/frío es la que hace que un papel con tinta
+       se vea bien. Grises cálidos sobre crema se verían turbios.
+       ============================================================ */
+    --color-neutral-25: #fafbfc;
+    --color-neutral-50: #f0f3f5;
+    --color-neutral-100: #e3e8ec;
+    --color-neutral-200: #cdd5db;  /* bordes en claro */
+    --color-neutral-300: #a9b5bf;
+    --color-neutral-400: #8794a1;  /* texto tenue / placeholders */
+    --color-neutral-500: #64717e;  /* texto secundario */
+    --color-neutral-600: #505b66;
+    --color-neutral-700: #3d454e;  /* texto fuerte en claro */
+    --color-neutral-800: #2b323a;  /* superficie elevada en oscuro */
+    --color-neutral-900: #1f252c;  /* fondo oscuro (derivado) */
+    --color-neutral-950: #151a20;  /* casi-negro azulado, texto principal */
 
-    /* Semántica de Colores Dinámicos según el Modo */
-    --color-bg-nav: rgba(250, 250, 250, 0.75);
-    --color-text-nav: #4b5563;
-    --color-text-nav-hover: #1e1e25; /* Sincronizado con tu color dark de fondo */
-    --color-border-nav: rgba(88, 98, 148, 0.1); /* Sutil toque de tu primario en el borde claro */
+    /* ============================================================
+       RAMPA DE MARCA — azul → menta → coral → crema
+       ============================================================ */
+    --color-brand-300: #ffd9b8;
+    --color-brand-400: #ffb6a6;   /* ← coral */
+    --color-brand-500: #9bcec1;   /* ← menta */
+    --color-brand-600: #67a2c5;   /* ← azul */
+    --color-brand-700: #3d7899;   /* derivado: azul profundo */
 
-    /* Mapeo nativo para backgrounds generales */
-    --color-background-light: #f8fafc; /* Un gris/azul clarito premium que va mejor con el primario */
-    --color-background-dark: #1e1e25; /* Tu nuevo gris oscuro premium */
+    /* Contenido que va ENCIMA de cada paso de la rampa.
+       Casi todos van OSCUROS: los pasteles no soportan texto claro.
+       Solo el 700 (derivado) tiene fuerza para llevar texto claro. */
+    --color-on-brand-300: #151a20;
+    --color-on-brand-400: #151a20;
+    --color-on-brand-500: #151a20;
+    --color-on-brand-600: #151a20;
+    --color-on-brand-700: #fafbfc;
 
-    /* Registramos un breakpoint custom llamado 'nav' en 860px */
+    /* ============================================================
+       PRIMARIO — el acento (modo claro)
+       Azul profundo DERIVADO: el #67a2c5 original con texto blanco
+       daría 2.7:1 de contraste (ilegible). Este da 4.2:1.
+       ============================================================ */
+    --color-primary: #3d7899;
+    --color-primary-hover: #2f6480;
+    --color-on-primary: #fafbfc;
+
+    /* ============================================================
+       NAVBAR / TEXTOS (modo claro) — neutros, sin acento
+       ============================================================ */
+    --color-bg-nav: rgba(255, 255, 255, 0.78);
+    --color-text-nav: #64717e;
+    --color-text-nav-hover: #151a20;
+    --color-border-nav: rgba(61, 69, 78, 0.14);
+
+    /* El crema de la paleta, suavizado. El #ffebd3 puro como fondo
+       de página entera satura demasiado; si lo quieres literal,
+       cambia esta línea a #ffebd3. */
+    --color-background-light: #f8f9fa;
+    --color-background-dark: #1f252c;   /* derivado: la paleta no trae oscuro */
+
+    /* Superficie elevada: papel del CV, modal. Blanco puro para que
+       se levante del fondo crema. */
+    --color-surface: #ffffff;
+
+    /* ============================================================
+       STATUS — "disponible" / "online"
+       Verde saturado, NO el menta de la paleta: si usara el menta,
+       el badge de disponibilidad se confundiría con el color de marca.
+       ============================================================ */
+    --color-status: #3f8a63;
+    --color-status-ping: #6dc99a;
+
+    /* ============================================================
+       SEMÁNTICOS DEL FORM
+       El error va en rojo puro y saturado, lejos del coral de marca:
+       si fuera coral, un error se leería como un elemento decorativo.
+       ============================================================ */
+    --color-success: #3f8a63;
+    --color-success-bg: #e6f2ea;
+    --color-error: #d64545;
+    --color-error-bg: #fbe9e9;
+    --color-warning: #9a6a15;
+    --color-warning-bg: #f9f0dc;
+
+    /* Breakpoint custom para el nav */
     --breakpoint-nav: 860px;
 }
 
-/* Sobrescritura de variables dinámicas cuando se activa la clase .dark */
+/* ================================================================
+   MODO OSCURO — aquí los pasteles por fin brillan
+   Sobre el azul-noche, la menta y el coral tienen toda la fuerza
+   que les faltaba sobre fondo claro.
+   ================================================================ */
 @layer base {
     :root.dark {
-        /* Sincronizado: Ahora la navbar toma el tono exacto de tu fondo #1E1E25 con opacidad */
-        --color-bg-nav: rgba(30, 30, 37, 0.8);
-        --color-text-nav: #cbd5e1;
-        --color-text-nav-hover: #ffffff;
-        --color-border-nav: rgba(255, 255, 255, 0.06);
+        /* El acento se invierte: en oscuro manda el menta */
+        --color-primary: #9bcec1;
+        --color-primary-hover: #c4e2da;
+        --color-on-primary: #151a20;
 
-        /* Unificación total: Mismo color primario y hover para ambos modos */
-        --color-primary: #586294;
-        --color-primary-hover: #707cae; /* Sincronizado: En modo oscuro, el hover se aclara elegantemente */
+        --color-bg-nav: rgba(31, 37, 44, 0.8);
+        --color-text-nav: #a9b5bf;
+        --color-text-nav-hover: #fafbfc;
+        --color-border-nav: rgba(250, 251, 252, 0.10);
+
+        --color-surface: var(--color-neutral-800);
+
+        --color-status: #6dc99a;
+        --color-status-ping: #3f8a63;
+
+        --color-success: #6dc99a;
+        --color-success-bg: rgba(63, 138, 99, 0.22);
+        /* Rojo puro, NO coral: tiene que distinguirse del #ffb6a6 de marca */
+        --color-error: #f05252;
+        --color-error-bg: rgba(214, 69, 69, 0.22);
+        --color-warning: #ddb264;
+        --color-warning-bg: rgba(154, 106, 21, 0.22);
     }
 }
 
@@ -51,9 +152,11 @@ body {
     min-height: 100vh;
 
     background-color: var(--color-background-light);
-    color: #1e1e25; /* Sincronizado con el fondo oscuro para consistencia */
+    color: var(--color-neutral-950);
 
     font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.65;
 
     transition:
         background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -61,23 +164,36 @@ body {
 
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html.dark body {
     background-color: var(--color-background-dark);
-    color: #f8fafc;
+    color: var(--color-neutral-25);
 }
 
-/* Selección Estilizada perfectamente sincronizada en RGBA con tu color #586294 */
+/* ================================================================
+   TÍTULOS — Sora. Siguen en neutro: la jerarquía es peso y tamaño,
+   el color solo acentúa.
+   ================================================================ */
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+/* ================================================================
+   SELECCIÓN — teñida con el acento
+   ================================================================ */
 ::selection {
-    background: rgba(88, 98, 148, 0.18);
+    background: color-mix(in srgb, var(--color-primary) 24%, transparent);
     color: inherit;
 }
-html.dark ::selection {
-    background: rgba(88, 98, 148, 0.35); /* Un toque más visible sobre el fondo #1E1E25 */
-}
 
-/* Scrollbar Minimalista Premium */
+/* ================================================================
+   SCROLLBAR — neutra en reposo, acento al interactuar
+   ================================================================ */
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -85,10 +201,16 @@ html.dark ::selection {
     background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
+    background: var(--color-neutral-300);
     border-radius: 999px;
     transition: background-color 0.2s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary-hover);
+    background: var(--color-primary);
+}
+html.dark ::-webkit-scrollbar-thumb {
+    background: var(--color-neutral-700);
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
 }

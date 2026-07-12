@@ -1,126 +1,91 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
+import { ArrowRight } from '@lucide/vue';
+import ProjectPlaceholder from './ProjectPlaceholder.vue';
+import { PROJECT_IMAGES } from './projects.data';
 
 const { t } = useI18n();
 
 defineProps({
-    project: {
-        type: Object,
-        required: true,
-    },
+    project: { type: Object, required: true },
 });
+
+const emit = defineEmits(['open']);
 </script>
 
 <template>
     <article
-        :id="`project-${project.id}`"
-        class="
-            flex flex-col
-            rounded-2xl
-            border border-[var(--color-border-nav)]
-            bg-[var(--color-primary)]/[0.02]
-            dark:bg-white/[0.01]
-            overflow-hidden
-            transition-all duration-300
-            hover:-translate-y-1
-            hover:border-[var(--color-primary)]/30
-        "
+        class="card grid grid-cols-1 md:grid-cols-2 rounded-2xl border border-[var(--color-border-nav)] bg-[var(--color-bg-nav)]/20 overflow-hidden transition-all duration-400"
     >
-        <!-- Identity + description -->
-        <div class="p-6 flex-1">
-            <div class="flex flex-wrap gap-2 mb-5">
-                <span class="
-                    px-3 py-1 rounded-full
-                    bg-[var(--color-primary)]/10 text-[var(--color-primary)]
-                    text-[10px] uppercase tracking-widest font-bold
-                ">
+        <!-- Imagen -->
+        <div class="relative h-48 md:h-auto md:min-h-[300px] border-b md:border-b-0 md:border-r border-[var(--color-border-nav)]">
+            <img
+                v-if="PROJECT_IMAGES[project.id]"
+                :src="PROJECT_IMAGES[project.id]"
+                :alt="`${project.title} architecture`"
+                class="w-full h-full object-cover"
+            />
+            <ProjectPlaceholder v-else :project-id="project.id" />
+        </div>
+
+        <!-- Info -->
+        <div class="p-6 sm:p-7 flex flex-col">
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="badge-solid px-3 py-1 rounded-full text-[9px] uppercase tracking-widest font-bold">
                     {{ project.category }}
                 </span>
-                <span class="
-                    px-3 py-1 rounded-full
-                    bg-zinc-500/10 text-zinc-500
-                    text-[10px] uppercase tracking-widest font-bold
-                ">
+                <span class="badge-ghost px-3 py-1 rounded-full text-[9px] uppercase tracking-widest font-bold">
                     {{ project.type }}
                 </span>
             </div>
 
-            <h3 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-nav-hover)] dark:text-white mb-1">
+            <h3 class="text-2xl sm:text-3xl font-black tracking-tighter text-[var(--color-text-nav-hover)] leading-none mb-1">
                 {{ project.title }}
             </h3>
+            <p class="font-mono text-xs text-[var(--color-text-nav)] mb-4">{{ project.company }}</p>
 
-            <p class="text-xs font-semibold text-[var(--color-primary)] mb-4">
-                {{ project.company }}
-            </p>
-
-            <p class="text-sm text-[var(--color-text-nav)] leading-relaxed">
+            <p class="text-sm text-[var(--color-text-nav)] leading-relaxed mb-6 flex-1">
                 {{ project.shortDescription }}
             </p>
-        </div>
 
-        <!-- Divider -->
-        <div class="h-px bg-gradient-to-r from-transparent via-[var(--color-border-nav)] to-transparent" />
-
-        <!-- Technical details -->
-        <div class="p-6 space-y-5">
-            <!-- Architecture + Methodology -->
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] mb-1.5">
-                        {{ t('landing.section.projects.card.label_architecture') }}
-                    </p>
-                    <p class="text-xs text-[var(--color-text-nav)] leading-relaxed">
-                        {{ project.details.architecture }}
-                    </p>
-                </div>
-                <div>
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] mb-1.5">
-                        {{ t('landing.section.projects.card.label_methodology') }}
-                    </p>
-                    <p class="text-xs text-[var(--color-text-nav)] leading-relaxed">
-                        {{ project.details.methodology }}
-                    </p>
-                </div>
-            </div>
-
-            <!-- Modules -->
-            <div>
-                <p class="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] mb-2">
-                    {{ t('landing.section.projects.card.label_modules') }}
-                </p>
-                <div class="flex flex-wrap gap-1.5">
-                    <span
-                        v-for="module in project.details.modules"
-                        :key="module"
-                        class="
-                            px-2.5 py-1 rounded-md
-                            text-[10px] font-medium
-                            bg-[var(--color-primary)]/5 text-[var(--color-primary)]
-                            border border-[var(--color-primary)]/10
-                        "
-                    >
-                        {{ module }}
-                    </span>
-                </div>
-            </div>
-
-            <!-- Stack -->
-            <div>
-                <p class="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] mb-2">
-                    {{ t('landing.section.projects.card.label_stack') }}
-                </p>
-                <div class="flex flex-wrap gap-1.5">
-                    <template v-for="(items, category) in project.stack" :key="category">
-                        <span
-                            v-for="item in items"
-                            :key="item"
-                            class="px-2.5 py-1 rounded-md text-xs bg-zinc-500/10 text-zinc-500"
-                        >
-                            {{ item }}
-                        </span>
-                    </template>
-                </div>
-            </div>
+            <button
+                @click="emit('open', project)"
+                type="button"
+                class="cta group/btn inline-flex items-center gap-2 self-start text-xs font-bold uppercase tracking-[0.1em] pb-1 transition-all duration-300 hover:gap-3"
+            >
+                <span>{{ t('landing.section.projects.card.view_detail') }}</span>
+                <ArrowRight class="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+            </button>
         </div>
     </article>
 </template>
+
+<style scoped>
+.card:hover {
+    border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    box-shadow: 0 20px 44px -22px color-mix(in srgb, var(--color-primary) 50%, transparent);
+}
+
+.badge-solid {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+.badge-ghost {
+    color: var(--color-text-nav);
+    border: 1px solid var(--color-border-nav);
+}
+.card:hover .badge-ghost {
+    color: var(--color-primary);
+    border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+}
+
+.cta {
+    color: var(--color-text-nav-hover);
+    border-bottom: 2px solid var(--color-text-nav-hover);
+}
+.cta:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+</style>
