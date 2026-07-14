@@ -1,12 +1,15 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const downloadCV = () => {
+    const lang = locale.value
+    const filename = `cv_${lang}_gianmarco_linares_becerra.pdf`;
+
     const link = document.createElement('a');
-    link.href = '/path-to-your-cv.pdf';
-    link.download = 'Gianmarco_Linares_CV.pdf';
+    link.href = `assets/cv/${filename}`;
+    link.download = filename;
     link.click();
 };
 </script>
@@ -70,14 +73,14 @@ const downloadCV = () => {
 
             <!-- Skills tags -->
             <rect x="40" y="185" width="34" height="12" rx="6" stroke-width="0.75"
-                  style="fill: color-mix(in srgb, var(--color-brand-600) 14%, transparent);
-                         stroke: color-mix(in srgb, var(--color-brand-600) 40%, transparent)" />
+                style="fill: color-mix(in srgb, var(--color-brand-600) 14%, transparent);
+                        stroke: color-mix(in srgb, var(--color-brand-600) 40%, transparent)" />
             <rect x="80" y="185" width="34" height="12" rx="6" stroke-width="0.75"
-                  style="fill: color-mix(in srgb, var(--color-brand-500) 14%, transparent);
-                         stroke: color-mix(in srgb, var(--color-brand-500) 40%, transparent)" />
+                style="fill: color-mix(in srgb, var(--color-brand-500) 14%, transparent);
+                        stroke: color-mix(in srgb, var(--color-brand-500) 40%, transparent)" />
             <rect x="120" y="185" width="34" height="12" rx="6" stroke-width="0.75"
-                  style="fill: color-mix(in srgb, var(--color-brand-400) 16%, transparent);
-                         stroke: color-mix(in srgb, var(--color-brand-400) 44%, transparent)" />
+                style="fill: color-mix(in srgb, var(--color-brand-400) 16%, transparent);
+                        stroke: color-mix(in srgb, var(--color-brand-400) 44%, transparent)" />
         </svg>
 
         <!-- Badge de descarga -->
@@ -92,7 +95,7 @@ const downloadCV = () => {
 
         <!-- Tooltip -->
         <span class="cv-tip absolute -bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300">
-            $ download cv.pdf
+            $ download cv_{{ locale === 'es' ? 'es' : 'en' }}.pdf
         </span>
     </button>
 </template>

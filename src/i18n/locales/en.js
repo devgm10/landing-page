@@ -5,6 +5,7 @@ export default {
         stack: 'Tech Stack',
         projects: 'Projects',
         experience: 'Experience',
+        testimonials:  'Testimonials'
     },
 
     landing: {
@@ -281,6 +282,56 @@ export default {
                 tools: {
                     description: 'Version control and team collaboration.',
                 },
+            },
+
+            testimonials: {
+                main_title: 'Recommendations',
+                secondary_title: 'Testimonials',
+                translated_note: 'Translated from Spanish',
+                list: [
+                    {
+                        name: 'Luis Quiroz',
+                        role: 'Software Applications Analyst',
+                        company: 'Agrovision Perú',
+                        rating: 5,
+                        comment: 'I had the opportunity to work with Gianmarco on the development of an agricultural planning system, where he demonstrated a solid command of backend development, particularly with Django, along with strong integration with a Vue frontend. He stands out for his ability to structure scalable solutions, keep code well organized, and apply best practices in API design and data handling. He also shows a strong focus on business logic and process optimization, which was key to the system working correctly. He is committed, responsible, and a willing team player.',
+                    },
+                    {
+                        name: 'Anthony Castillo',
+                        role: 'GIS Programmer Analyst',
+                        company: 'Agrovision Corp',
+                        rating: 5,
+                        comment: 'Excellent work. He keeps the code clean and reuses recurring functions across every module and component, on both the frontend and the backend.',
+                    },
+                    {
+                        name: 'Jeremy Reyes',
+                        role: 'Freelance Developer',
+                        company: 'Agrovision',
+                        rating: 5,
+                        comment: 'I had the chance to work with him on a development project and it was an excellent experience. He is highly responsible, technically strong, and always brings the right attitude to any challenge. Without a doubt, a professional you can trust to carry a project through.',
+                    },
+                    {
+                        name: 'Hernán Machaca',
+                        role: 'Management Control Lead',
+                        company: 'Agrovision',
+                        rating: 5,
+                        comment: 'Solid development capability, meeting objectives on time and to specification. Good communication.',
+                    },
+                    {
+                        name: 'Wilson Choquehuanca',
+                        role: 'Data Engineer',
+                        company: 'Agrovision',
+                        rating: 5,
+                        comment: 'A very good professional. He enjoys learning new things and takes initiative on projects.',
+                    },
+                    {
+                        name: 'Jaime Cueva',
+                        role: 'Information Management Deputy Manager',
+                        company: 'Agrovision',
+                        rating: 5,
+                        comment: 'Works well remotely, goal-oriented, delivers significant results, and performs well under pressure.',
+                    },
+                ],
             },
         },
     },

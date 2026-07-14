@@ -5,6 +5,7 @@ export default {
         stack: 'Tecnologías',
         projects: 'Proyectos',
         experience: 'Experiencia',
+        testimonials:  'Testimonios'
     },
 
     landing: {
@@ -280,6 +281,56 @@ export default {
                 tools: {
                     description: 'Control de versiones y colaboración en equipo.',
                 },
+            },
+
+            testimonials: {
+                main_title: 'Recomendaciones',
+                secondary_title: 'Testimonios',
+                translated_note: '',
+                list: [
+                    {
+                        name: 'Luis Quiroz',
+                        role: 'Analista de Aplicaciones de Software',
+                        company: 'Agrovision Perú',
+                        rating: 5,
+                        comment: 'He tenido la oportunidad de trabajar con Gianmarco en el desarrollo de un sistema de planificación agrícola, donde demostró un sólido dominio en backend, especialmente utilizando Django, así como una buena integración con el frontend en Vue. Destaca por su capacidad para estructurar soluciones escalables, mantener un código ordenado y aplicar buenas prácticas en el diseño de APIs y manejo de datos. Además, muestra un fuerte enfoque en la lógica de negocio y en la optimización de procesos, lo cual fue clave para el correcto funcionamiento del sistema. Es una persona comprometida, responsable y con buena disposición para el trabajo en equipo.',
+                    },
+                    {
+                        name: 'Anthony Castillo',
+                        role: 'Analista Programador GIS',
+                        company: 'Agrovision Corp',
+                        rating: 5,
+                        comment: 'Excelente trabajo, mantiene el código limpio y reutiliza funciones repetitivas para cada módulo o componente, tanto a nivel frontend como backend.',
+                    },
+                    {
+                        name: 'Jeremy Reyes',
+                        role: 'Desarrollador Freelance',
+                        company: 'Agrovision',
+                        rating: 5,
+                        comment: 'Tuve la oportunidad de trabajar con él en un proyecto de desarrollo y fue una excelente experiencia. Es una persona muy responsable, con gran capacidad técnica y siempre con la mejor actitud para enfrentar los retos. Sin duda es un profesional en quien se puede confiar para sacar adelante cualquier proyecto.',
+                    },
+                    {
+                        name: 'Hernán Machaca',
+                        role: 'Jefe de Control de Gestión',
+                        company: 'Agrovision',
+                        rating: 5,
+                        comment: 'Sólida capacidad de desarrollo, cumplimiento de objetivos en tiempo y requerimientos. Buena comunicación.',
+                    },
+                    {
+                        name: 'Wilson Choquehuanca',
+                        role: 'Ingeniero de Datos',
+                        company: 'Agrovision',
+                        rating: 5,
+                        comment: 'Muy buen profesional, le gusta aprender cosas nuevas y toma iniciativas en los proyectos.',
+                    },
+                    {
+                        name: 'Jaime Cueva',
+                        role: 'Subgerente de Gestión de la Información',
+                        company: 'Agrovision',
+                        rating: 5,
+                        comment: 'Trabaja bien en teletrabajo, orientado a objetivos, logros importantes y trabaja bajo presión.',
+                    },
+                ],
             },
         },
     },
