@@ -7,7 +7,7 @@ import i18n from './i18n';
 import '@fontsource/dm-mono';
 import 'devicon/devicon.min.css';
 
-import { initializeTheme } from '@/utils/theme';
+import { initializeTheme } from '@/utils/theme/theme.js';
 
 import './style.css';
 
