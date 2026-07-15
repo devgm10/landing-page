@@ -110,6 +110,7 @@ jobs:
             run: |
                 docker build \
                     --build-arg VITE_CONTACT_API_URL="${{ secrets.VITE_CONTACT_API_URL }}" \
+                    --build-arg VITE_TURNSTILE_SITE_KEY="${{ secrets.VITE_TURNSTILE_SITE_KEY }}" \
                     -t landing-scan:latest .
 
         -   name: Scan Docker Image
@@ -174,6 +175,7 @@ jobs:
                         ${{ secrets.DOCKERHUB_USERNAME }}/landing-page:${{ github.sha }}
                     build-args: |
                         VITE_CONTACT_API_URL=${{ secrets.VITE_CONTACT_API_URL }}
+                        VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
 
 
     # ---------- Despliegue vía SSM (solo push a main) ----------
