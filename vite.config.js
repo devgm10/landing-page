@@ -15,7 +15,7 @@ export default defineConfig({
     test: {
         environment: 'happy-dom',
         globals: true,
-
+        setupFiles: ['./vitest.setup.js'],
         coverage: {
             provider: 'v8',
             reporter: ['text', 'lcov'],   // 'lcov' es el que lee Sonar
