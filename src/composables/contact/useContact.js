@@ -41,7 +41,7 @@ export const useContact = () => {
         return mapped;
     };
 
-    const submit = async () => {
+    const submit = async (turnstileToken) => {
         errors.value = {};
         feedback.value = null;
 
@@ -53,10 +53,20 @@ export const useContact = () => {
             return;
         }
 
+        // 1.5) Verificar que el usuario pasó Turnstile
+        if (!turnstileToken) {
+            status.value = CONTACT_STATUS.ERROR;
+            feedback.value = CONTACT_MESSAGES.ERROR;
+            return;
+        }
+
         // 2) Envío
         status.value = CONTACT_STATUS.LOADING;
         try {
-            const result = await sendContactMessage({ ...form });
+            const result = await sendContactMessage(
+                { ...form },
+                turnstileToken,
+            );
 
             if (result.ok) {
                 status.value = CONTACT_STATUS.SUCCESS;

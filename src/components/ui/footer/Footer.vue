@@ -1,22 +1,12 @@
 <script setup>
-import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { topbarItems } from '@/components/ui/topbar/topbar.config';
 import SocialLinks from '@/components/ui/social/SocialLinks.vue';
-import { Navigation as NavigationIcon, MapPin } from '@lucide/vue';
+import { MapPin } from '@lucide/vue';
 import ContactForm from '@/components/contact/ContactForm.vue';
 
 const { t } = useI18n();
 const currentYear = new Date().getFullYear();
-
-const email = ref('');
-const message = ref('');
-
-const handleContact = () => {
-    console.log({ email: email.value, message: message.value });
-    email.value = '';
-    message.value = '';
-};
 </script>
 
 <template>
@@ -114,17 +104,6 @@ const handleContact = () => {
                                 {{ t('footer.contact_sub_title') }}
                             </p>
                         </div>
-
-                        <button
-                            type="submit"
-                            form="contact-form"
-                            class="hidden nav:inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] px-5 py-2.5 text-xs font-bold tracking-wide uppercase text-white shadow-lg shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/35 cursor-pointer group/btn transition-all duration-300 active:scale-95 whitespace-nowrap"
-                        >
-                            <span>{{ t('footer.send') }}</span>
-                            <NavigationIcon
-                                class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:rotate-12 group-hover/btn:translate-x-0.5"
-                            />
-                        </button>
                     </div>
 
                     <ContactForm />

@@ -11,4 +11,27 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url)),
         },
     },
+
+    test: {
+        environment: 'happy-dom',
+        globals: true,
+        setupFiles: ['./vitest.setup.js'],
+        coverage: {
+            provider: 'v8',
+            reporter: ['text', 'lcov'],   // 'lcov' es el que lee Sonar
+            reportsDirectory: './coverage',
+
+            // Solo medimos JS: los .vue están excluidos en Sonar
+            include: ['src/**/*.js'],
+            exclude: [
+                'src/**/*.data.js',
+                'src/**/*.config.js',
+                'src/i18n/**',
+                'src/main.js',
+                'src/router/**',
+                'src/**/*.test.js',
+                'src/composables/turnstile/**'
+            ],
+        },
+    },
 });
