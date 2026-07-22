@@ -38,7 +38,7 @@ onUnmounted(() => {
 
             <!-- Móvil: hoja a pantalla casi completa · Desktop: diálogo centrado -->
             <div
-                class="modal-box relative z-10 w-full sm:max-w-3xl h-[92vh] sm:h-auto sm:max-h-[88vh] rounded-t-2xl sm:rounded-2xl border-t sm:border border-[var(--color-border-nav)] bg-[var(--color-surface)] overflow-hidden flex flex-col modal-content"
+                class="modal-box relative z-10 w-full sm:max-w-3xl max-h-[85dvh] sm:max-h-[88dvh] rounded-t-2xl sm:rounded-2xl border-t sm:border border-[var(--color-border-nav)] bg-[var(--color-surface)] overflow-hidden flex flex-col modal-content"
             >
                 <span class="modal-accent shrink-0" aria-hidden="true" />
 
@@ -301,6 +301,7 @@ onUnmounted(() => {
     background: var(--color-primary);
 }
 .modal-scroll {
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
     scrollbar-width: thin;
     scrollbar-color: color-mix(in srgb, var(--color-primary) 55%, transparent) var(--color-neutral-100);
 }
