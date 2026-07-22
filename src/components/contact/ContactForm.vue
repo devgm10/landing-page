@@ -37,15 +37,10 @@ const handleReset = async () => {
 const inputClass =
     'w-full rounded-xl border border-[var(--color-border-nav)]/60 bg-black/[0.01] dark:bg-white/[0.01] px-4 py-2.5 text-xs text-[var(--color-text-nav-hover)] placeholder:text-[var(--color-text-nav)]/30 focus:border-[var(--color-primary)] focus:bg-black/[0.03] dark:focus:bg-white/[0.03] focus:outline-none transition-all duration-300';
 
-const ERROR_TEXT = {
-    required: 'Este campo es obligatorio',
-    min: 'Demasiado corto',
-    max: 'Demasiado largo',
-    invalid: 'Formato inválido',
-};
-
 const fieldError = (field) =>
-    errors.value[field] ? t(`footer.errors.${field}_${errors.value[field]}`, ERROR_TEXT[errors.value[field]]) : '';
+    errors.value[field]
+        ? t(`footer.errors.${field}_${errors.value[field]}`)
+        : '';
 </script>
 
 <template>
