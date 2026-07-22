@@ -11,25 +11,20 @@ export const useTurnstile = (siteKey) => {
         if (!window.turnstile || !turnstileEl.value) return;
 
         if (widgetId !== null) {
-            window.turnstile.remove(widgetId);
+            try {
+                window.turnstile.remove(widgetId);
+            } catch {
+                // el widget ya no existe o está en transición; ignorar
+            }
             widgetId = null;
         }
 
         widgetId = window.turnstile.render(turnstileEl.value, {
             sitekey: siteKey,
             theme: 'auto',
-
-            callback(value) {
-                token.value = value;
-            },
-
-            'expired-callback'() {
-                token.value = '';
-            },
-
-            'error-callback'() {
-                token.value = '';
-            },
+            callback(value) { token.value = value; },
+            'expired-callback'() { token.value = ''; },
+            'error-callback'() { token.value = ''; },
         });
     };
 
@@ -57,12 +52,13 @@ export const useTurnstile = (siteKey) => {
     });
 
     onUnmounted(() => {
-        if (intervalId) {
-            clearInterval(intervalId);
-        }
+        if (intervalId) clearInterval(intervalId);
 
         if (widgetId !== null && window.turnstile) {
-            window.turnstile.remove(widgetId);
+            try {
+                window.turnstile.remove(widgetId);
+            } catch {
+            }
             widgetId = null;
         }
     });

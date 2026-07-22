@@ -127,6 +127,10 @@ export default {
                     label_modules: 'Módulos',
                     label_stack: 'Stack',
                     view_detail: 'Ver detalle',
+                    label_overview: 'Resumen',
+                    label_highlights: 'Aspectos clave',
+                    label_capabilities: 'Capacidades',
+                    label_impact: 'Impacto',
                 },
                 list: [
                     {
@@ -135,23 +139,58 @@ export default {
                         category: 'Fintech & IA',
                         company: 'Proyecto Personal',
                         type: 'SaaS Propio',
-                        shortDescription: 'Plataforma SaaS financiera impulsada por Inteligencia Artificial para automatizar el registro y análisis de gastos personales.',
+
+                        shortDescription:
+                            'Plataforma SaaS financiera que combina Inteligencia Artificial y automatización para convertir conversaciones naturales en registros financieros estructurados y facilitar el control inteligente de las finanzas personales.',
+
+                        overview:
+                            'Planifly nace con el objetivo de reducir la fricción asociada al registro y seguimiento de gastos personales. La plataforma propone una experiencia financiera más natural, permitiendo que los usuarios interactúen con sus finanzas mediante una interfaz web y un asistente conversacional impulsado por Inteligencia Artificial.',
+
+                        highlights: [
+                            'Diseño de una arquitectura modular orientada a separar las principales capacidades del dominio financiero.',
+                            'Integración de Inteligencia Artificial para interpretar interacciones en lenguaje natural y transformarlas en información financiera estructurada.',
+                            'Implementación de comunicación en tiempo real mediante WebSockets y Django Channels.',
+                            'Procesamiento y visualización de información financiera mediante dashboards y gráficos interactivos.',
+                            'Diseño de una experiencia conversacional orientada a reducir la fricción entre el usuario y el registro de sus operaciones financieras.',
+                        ],
+
+                        impact:
+                            'La propuesta busca transformar el registro tradicional de gastos en una experiencia rápida y natural, reduciendo la cantidad de pasos necesarios para registrar una operación y convirtiendo los datos financieros en información útil para la toma de decisiones personales.',
+
                         details: {
                             architecture: 'Arquitectura en Capas (Monolítica Modular)',
                             methodology: 'Scrum',
-                            modules: [
+                            capabilities: [
                                 'Dashboard Financiero',
-                                'Presupuestos',
-                                'Gastos',
-                                'Reportes',
-                                'WhatsApp AI',
-                                'Motor IA',
+                                'Gestión de Gastos',
+                                'Control de Presupuestos',
+                                'Análisis y Reportes',
+                                'Asistente Financiero con IA',
+                                'Interacción Conversacional',
+                                'Motor de Procesamiento IA',
+                                'Comunicación en Tiempo Real',
                             ],
                         },
+
                         stack: {
-                            Backend: ['Python', 'Django', 'DRF', 'Channels', 'Redis'],
-                            Frontend: ['Vue 3', 'Vite', 'Tailwind', 'Chart.js'],
-                            DevOps: ['Docker', 'GitHub', 'PostgreSQL'],
+                            Backend: [
+                                'Python',
+                                'Django',
+                                'Django REST Framework',
+                                'Django Channels',
+                                'Redis',
+                            ],
+                            Frontend: [
+                                'Vue 3',
+                                'Vite',
+                                'Tailwind CSS',
+                                'Chart.js',
+                            ],
+                            DevOps: [
+                                'Docker',
+                                'GitHub',
+                                'PostgreSQL',
+                            ],
                         },
                     },
                     {
@@ -160,24 +199,55 @@ export default {
                         category: 'ERP Agrícola',
                         company: 'Agrovision Corp.',
                         type: 'Corporativo',
-                        shortDescription: 'ERP corporativo para planificación y control integral de operaciones agrícolas a escala global.',
+
+                        shortDescription:
+                            'ERP agrícola corporativo diseñado para centralizar la planificación, gestión y control de operaciones productivas, integrando múltiples áreas de negocio dentro de una única plataforma.',
+
+                        overview:
+                            'PCG AGRO es una plataforma empresarial orientada a digitalizar y centralizar procesos críticos de la operación agrícola. La solución integra diferentes áreas funcionales del negocio en un único ecosistema, permitiendo gestionar información operativa, financiera y productiva bajo una visión centralizada.',
+
+                        highlights: [
+                            'Diseño y desarrollo de módulos empresariales orientados a diferentes áreas del negocio agrícola.',
+                            'Implementación de APIs REST para centralizar y exponer la lógica de negocio.',
+                            'Construcción de interfaces dinámicas para gestionar grandes volúmenes de información tabular.',
+                            'Integración de procesos de planificación, presupuestación, costos y proyección dentro de una misma plataforma.',
+                            'Desarrollo de soluciones orientadas a soportar procesos agrícolas y empresariales a gran escala.',
+                        ],
+
+                        impact:
+                            'La plataforma permite centralizar información de diferentes áreas del negocio y proporcionar una visión integrada de la operación, facilitando la planificación, el seguimiento y el análisis de procesos agrícolas y financieros.',
+
                         details: {
                             architecture: 'Arquitectura en Capas',
                             methodology: 'Scrum',
-                            modules: [
-                                'Agrícola',
-                                'Packing',
-                                'I+D',
-                                'Comercial',
-                                'Presupuesto',
-                                'Costos',
-                                'Proyección',
+                            capabilities: [
+                                'Gestión de Operaciones Agrícolas',
+                                'Gestión de Packing',
+                                'Investigación y Desarrollo',
+                                'Gestión Comercial',
+                                'Planificación Presupuestaria',
+                                'Control de Costos',
+                                'Proyecciones Operativas',
+                                'Gestión de Información Empresarial',
                             ],
                         },
+
                         stack: {
-                            Backend: ['Python', 'Django', 'DRF'],
-                            Frontend: ['Vue 3', 'Handsontable', 'Vuexy'],
-                            DevOps: ['AWS', 'PostgreSQL', 'Bitbucket'],
+                            Backend: [
+                                'Python',
+                                'Django',
+                                'Django REST Framework',
+                            ],
+                            Frontend: [
+                                'Vue 3',
+                                'Handsontable',
+                                'Vuexy',
+                            ],
+                            DevOps: [
+                                'AWS',
+                                'PostgreSQL',
+                                'Bitbucket',
+                            ],
                         },
                     },
                     {
@@ -186,75 +256,191 @@ export default {
                         category: 'Geoespacial & Agrotech',
                         company: 'Agrovision Corp.',
                         type: 'Corporativo',
-                        shortDescription: 'Plataforma geoespacial para el monitoreo y seguimiento en tiempo real de los avances de cosecha mediante mapas interactivos.',
+
+                        shortDescription:
+                            'Plataforma geoespacial para digitalizar el seguimiento de operaciones de cosecha mediante mapas interactivos, datos operativos y comunicación en tiempo real.',
+
+                        overview:
+                            'HARVEST es una plataforma especializada en la visualización y seguimiento de operaciones agrícolas, utilizando información geoespacial para representar el avance de la cosecha sobre mapas interactivos. La solución conecta información operativa con una representación visual del terreno, permitiendo a los equipos monitorear el estado de las operaciones de forma más clara y dinámica.',
+
+                        highlights: [
+                            'Integración de información geoespacial con procesos operativos agrícolas.',
+                            'Visualización interactiva de lotes, hileras y zonas de trabajo mediante mapas.',
+                            'Implementación de comunicación en tiempo real utilizando WebSockets.',
+                            'Procesamiento y generación de información geográfica mediante SimpleKML.',
+                            'Construcción de interfaces dinámicas para la gestión y visualización de información operativa.',
+                            'Integración de Google Maps API para representar información geográfica y operacional.',
+                        ],
+
+                        impact:
+                            'La plataforma transforma información operativa de cosecha en una representación geoespacial interactiva, facilitando el monitoreo del avance de las operaciones y proporcionando una visión más clara del estado de los procesos agrícolas.',
+
                         details: {
                             architecture: 'Arquitectura en Capas (Monolítica)',
                             methodology: 'Scrum',
-                            modules: [
-                                'Cosecha',
-                                'Pre-Cosecha',
-                                'Pasadas',
+                            capabilities: [
+                                'Monitoreo de Cosecha',
+                                'Gestión de Pre-Cosecha',
+                                'Seguimiento de Pasadas',
                                 'Gestión de Vigencias',
                                 'Gestión de Turnos',
                                 'Gestión de Lotes',
                                 'Gestión de Hileras',
+                                'Visualización Geoespacial',
+                                'Actualización en Tiempo Real',
                             ],
                         },
+
                         stack: {
-                            Backend: ['Python', 'Django', 'DRF', 'WebSockets', 'SimpleKML'],
-                            Frontend: ['Vue 3', 'Vite', 'Vuexy', 'Handsontable', 'Google Maps API'],
-                            DevOps: ['AWS S3', 'PostgreSQL', 'Bitbucket'],
+                            Backend: [
+                                'Python',
+                                'Django',
+                                'Django REST Framework',
+                                'WebSockets',
+                                'SimpleKML',
+                            ],
+                            Frontend: [
+                                'Vue 3',
+                                'Vite',
+                                'Vuexy',
+                                'Handsontable',
+                                'Google Maps API',
+                            ],
+                            DevOps: [
+                                'AWS S3',
+                                'PostgreSQL',
+                                'Bitbucket',
+                            ],
                         },
                     },
                     {
                         id: 'scraping-agro',
                         title: 'SCRAPING AGRO',
-                        category: 'ETL & ELT Corporativo',
+                        category: 'Ingeniería de Datos & ETL',
                         company: 'Agrovision Corp.',
                         type: 'Corporativo',
-                        shortDescription: 'Plataforma corporativa de ETL & ELT para centralizar, transformar y sincronizar grandes volúmenes de datos agrícolas.',
+
+                        shortDescription:
+                            'Plataforma corporativa de integración y procesamiento de datos diseñada para automatizar pipelines ETL y ELT, centralizar información proveniente de múltiples fuentes y mantener sincronizados los datos agrícolas.',
+
+                        overview:
+                            'Scraping Agro es una plataforma de integración de datos desarrollada para automatizar la extracción, transformación y carga de información proveniente de diferentes fuentes y sistemas. La solución centraliza la gestión de pipelines de datos y permite ejecutar procesos de transformación de forma controlada y trazable.',
+
+                        highlights: [
+                            'Diseño de pipelines ETL y ELT para integrar información proveniente de múltiples fuentes.',
+                            'Procesamiento y transformación de grandes volúmenes de datos utilizando Python y Pandas.',
+                            'Ejecución de procesos asíncronos mediante Celery y Redis.',
+                            'Integración con diferentes motores y fuentes de datos utilizando SQLAlchemy.',
+                            'Implementación de mecanismos de monitoreo y trazabilidad para procesos de integración.',
+                            'Gestión centralizada de conexiones y configuraciones de extracción.',
+                            'Registro de logs y auditoría para facilitar el seguimiento de ejecuciones y errores.',
+                        ],
+
+                        impact:
+                            'La plataforma reduce la dependencia de procesos manuales de integración y permite automatizar la circulación de información entre diferentes fuentes y sistemas, mejorando la disponibilidad, trazabilidad y consistencia de los datos utilizados por la organización.',
+
                         details: {
-                            architecture: 'Arquitectura en Capas (Monolítica con procesamiento asíncrono)',
+                            architecture: 'Arquitectura en Capas con Procesamiento Asíncrono',
                             methodology: 'Scrum',
-                            modules: [
+                            capabilities: [
                                 'Gestión de Extracciones',
+                                'Diseño y Ejecución de Pipelines',
                                 'Orquestación de Procesos',
-                                'Monitoreo de Pipelines',
+                                'Procesamiento Asíncrono',
+                                'Transformación de Datos',
+                                'Monitoreo de Ejecuciones',
                                 'Administración de Conexiones',
-                                'Logs de Auditoría',
+                                'Logs y Auditoría',
                                 'Panel Administrativo',
                             ],
                         },
+
                         stack: {
-                            Backend: ['Python', 'Django', 'DRF', 'Pandas', 'Celery', 'Redis', 'SQLAlchemy'],
-                            Frontend: ['Vue 3', 'Vite', 'Vuexy'],
-                            DevOps: ['AWS', 'PostgreSQL', 'Bitbucket'],
+                            Backend: [
+                                'Python',
+                                'Django',
+                                'Django REST Framework',
+                                'Pandas',
+                                'Celery',
+                                'Redis',
+                                'SQLAlchemy',
+                            ],
+                            Frontend: [
+                                'Vue 3',
+                                'Vite',
+                                'Vuexy',
+                            ],
+                            DevOps: [
+                                'AWS',
+                                'PostgreSQL',
+                                'Bitbucket',
+                            ],
                         },
                     },
                     {
                         id: 'portfolio',
                         title: 'LANDING PAGE / PORTFOLIO',
-                        category: 'Marca Personal',
+                        category: 'Marca Personal & Ingeniería',
                         company: 'Gianmarco Linares Becerra',
                         type: 'Portfolio Profesional',
-                        shortDescription: 'Plataforma web profesional para presentar experiencia, proyectos y competencias técnicas como Full Stack & DevOps Engineer.',
+
+                        shortDescription:
+                            'Plataforma web profesional diseñada y desarrollada como producto digital propio para presentar experiencia, proyectos y capacidades como Full Stack & DevOps Engineer.',
+
+                        overview:
+                            'Este portfolio fue diseñado como una experiencia digital orientada a comunicar mi trayectoria profesional y demostrar, a través de un producto real, mis capacidades de desarrollo frontend, arquitectura de software, experiencia de usuario y prácticas DevOps.',
+
+                        highlights: [
+                            'Arquitectura frontend modular basada en componentes reutilizables.',
+                            'Implementación de soporte multiidioma para ampliar la accesibilidad de la plataforma.',
+                            'Sistema de gestión de temas y preferencias visuales.',
+                            'Diseño responsive adaptado a diferentes dispositivos y resoluciones.',
+                            'Integración de un microservicio serverless independiente para el procesamiento del formulario de contacto.',
+                            'Contenerización de la aplicación mediante Docker.',
+                            'Despliegue y configuración de infraestructura cloud para publicar el producto.',
+                        ],
+
+                        impact:
+                            'El proyecto funciona como una demostración práctica de mi capacidad para llevar un producto digital desde su diseño y desarrollo hasta su despliegue, integrando frontend moderno, arquitectura desacoplada y prácticas de infraestructura y DevOps.',
+
                         details: {
-                            architecture: 'SPA Modular (Componentes Reutilizables)',
+                            architecture:
+                                'SPA Modular con Componentes Reutilizables y Servicios Desacoplados',
                             methodology: 'Desarrollo Iterativo / Ágil',
-                            modules: [
-                                'Hero Section',
-                                'About Me',
-                                'Technology Stack',
-                                'Projects Portfolio',
-                                'Professional Experience',
-                                'Contact Section',
-                                'Multi-language Support',
-                                'Theme Management',
+                            capabilities: [
+                                'Presentación Profesional',
+                                'Experiencia de Usuario',
+                                'Soporte Multiidioma',
+                                'Gestión de Temas',
+                                'Diseño Responsive',
+                                'Portafolio de Proyectos',
+                                'Experiencia Profesional',
+                                'Sistema de Contacto',
+                                'Servicio de Notificaciones Serverless',
                             ],
                         },
+
                         stack: {
-                            Frontend: ['Vue 3', 'Vite', 'Vue Router', 'Vue I18n', 'Tailwind CSS', 'Lucide Icons'],
-                            DevOps: ['Git', 'GitHub', 'Docker', 'AWS', 'Hostman'],
+                            Frontend: [
+                                'Vue 3',
+                                'Vite',
+                                'Vue Router',
+                                'Vue I18n',
+                                'Tailwind CSS',
+                                'Lucide Icons',
+                            ],
+                            Backend: [
+                                'AWS Lambda',
+                                'API Gateway',
+                                'Resend',
+                            ],
+                            DevOps: [
+                                'Git',
+                                'GitHub',
+                                'Docker',
+                                'AWS',
+                                'Hostman',
+                            ],
                         },
                     },
                 ],
@@ -346,6 +532,21 @@ export default {
         placeholder_message: 'Cuéntame sobre tu idea o vacante...',
         placeholder_company: 'Empresa (opcional)',
         placeholder_subject: 'Asunto (opcional)',
+        success_title: '¡Mensaje enviado!',
+        success_text: 'Gracias por escribirme. Te responderé lo antes posible.',
+        success_again: 'Enviar otro mensaje',
+        errors: {
+            name_required: 'Este campo es obligatorio',
+            name_min: 'Demasiado corto',
+            name_max: 'Demasiado largo',
+            email_required: 'Este campo es obligatorio',
+            email_invalid: 'Formato de correo inválido',
+            message_required: 'Este campo es obligatorio',
+            message_min: 'Demasiado corto',
+            message_max: 'Demasiado largo',
+            company_max: 'Demasiado largo',
+            subject_max: 'Demasiado largo',
+        },
     },
 
     status_personal: 'Disponible para nuevos desafíos',

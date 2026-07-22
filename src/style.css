@@ -23,122 +23,106 @@
     --font-swanky: 'Swanky and Moo Moo', cursive;
 
     /* ============================================================
-       NEUTROS — azul-gris frío
-       Fríos a propósito: el fondo es crema (cálido), y esa
-       tensión cálido/frío es la que hace que un papel con tinta
-       se vea bien. Grises cálidos sobre crema se verían turbios.
+       NEUTROS — Estilo Tech Moderno (Zinc / Slate tecnológico)
        ============================================================ */
-    --color-neutral-25: #fafbfc;
-    --color-neutral-50: #f0f3f5;
-    --color-neutral-100: #e3e8ec;
-    --color-neutral-200: #cdd5db;  /* bordes en claro */
-    --color-neutral-300: #a9b5bf;
-    --color-neutral-400: #8794a1;  /* texto tenue / placeholders */
-    --color-neutral-500: #64717e;  /* texto secundario */
-    --color-neutral-600: #505b66;
-    --color-neutral-700: #3d454e;  /* texto fuerte en claro */
-    --color-neutral-800: #2b323a;  /* superficie elevada en oscuro */
-    --color-neutral-900: #1f252c;  /* fondo oscuro (derivado) */
-    --color-neutral-950: #151a20;  /* casi-negro azulado, texto principal */
+    --color-neutral-25: #f8fafc;
+    --color-neutral-50: #f1f5f9;
+    --color-neutral-100: #e2e8f0;
+    --color-neutral-200: #cbd5e1;  /* bordes limpios y claros */
+    --color-neutral-300: #94a3b8;
+    --color-neutral-400: #64748b;  /* texto tenue con gran contraste */
+    --color-neutral-500: #475569;  /* texto secundario sólido */
+    --color-neutral-600: #334155;
+    --color-neutral-700: #1e293b;  /* texto fuerte en claro */
+    --color-neutral-800: #0f172a;  /* superficie elevada en oscuro */
+    --color-neutral-900: #090d16;  /* fondo oscuro tech */
+    --color-neutral-950: #020617;  /* texto principal ultra definido */
 
     /* ============================================================
-       RAMPA DE MARCA — azul → menta → coral → crema
+       RAMPA DE MARCA — Tonos de plataforma tech (Índigo, Violeta, Púrpura)
        ============================================================ */
-    --color-brand-300: #ffd9b8;
-    --color-brand-400: #ffb6a6;   /* ← coral */
-    --color-brand-500: #9bcec1;   /* ← menta */
-    --color-brand-600: #67a2c5;   /* ← azul */
-    --color-brand-700: #3d7899;   /* derivado: azul profundo */
+    --color-brand-300: #d8b4fe;
+    --color-brand-400: #c084fc;   /* ← Lila vibrante moderno */
+    --color-brand-500: #a855f7;   /* ← Violeta tech primario */
+    --color-brand-600: #6366f1;   /* ← Índigo elegante */
+    --color-brand-700: #8b5cf6;   /* ← Púrpura acento developer */
 
-    /* Contenido que va ENCIMA de cada paso de la rampa.
-       Casi todos van OSCUROS: los pasteles no soportan texto claro.
-       Solo el 700 (derivado) tiene fuerza para llevar texto claro. */
-    --color-on-brand-300: #151a20;
-    --color-on-brand-400: #151a20;
-    --color-on-brand-500: #151a20;
-    --color-on-brand-600: #151a20;
-    --color-on-brand-700: #fafbfc;
+    /* Contenido que va ENCIMA de cada paso de la rampa. */
+    --color-on-brand-300: #020617;
+    --color-on-brand-400: #020617;
+    --color-on-brand-500: #ffffff;
+    --color-on-brand-600: #ffffff;
+    --color-on-brand-700: #ffffff;
 
     /* ============================================================
        PRIMARIO — el acento (modo claro)
-       Azul profundo DERIVADO: el #67a2c5 original con texto blanco
-       daría 2.7:1 de contraste (ilegible). Este da 4.2:1.
+       Azul tech profesional y nítido
        ============================================================ */
-    --color-primary: #3d7899;
-    --color-primary-hover: #2f6480;
-    --color-on-primary: #fafbfc;
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+    --color-on-primary: #ffffff;
 
     /* ============================================================
-       NAVBAR / TEXTOS (modo claro) — neutros, sin acento
+       NAVBAR / TEXTOS (modo claro)
        ============================================================ */
-    --color-bg-nav: rgba(255, 255, 255, 0.78);
-    --color-text-nav: #64717e;
-    --color-text-nav-hover: #151a20;
-    --color-border-nav: rgba(61, 69, 78, 0.14);
+    --color-bg-nav: rgba(248, 250, 252, 0.85);
+    --color-text-nav: #475569;
+    --color-text-nav-hover: #0f172a;
+    --color-border-nav: rgba(203, 213, 225, 0.5);
 
-    /* El crema de la paleta, suavizado. El #ffebd3 puro como fondo
-       de página entera satura demasiado; si lo quieres literal,
-       cambia esta línea a #ffebd3. */
-    --color-background-light: #f8f9fa;
-    --color-background-dark: #1f252c;   /* derivado: la paleta no trae oscuro */
+    --color-background-light: #ffffff;   /* Blanco puro y limpio estilo SaaS moderno */
+    --color-background-dark: #090d16;    /* Azul medianoche profundo (tipo Vercel / Linear) */
 
-    /* Superficie elevada: papel del CV, modal. Blanco puro para que
-       se levante del fondo crema. */
+    /* Superficie elevada: papel del CV, modal. Blanco impecable */
     --color-surface: #ffffff;
 
     /* ============================================================
        STATUS — "disponible" / "online"
-       Verde saturado, NO el menta de la paleta: si usara el menta,
-       el badge de disponibilidad se confundiría con el color de marca.
        ============================================================ */
-    --color-status: #3f8a63;
-    --color-status-ping: #6dc99a;
+    --color-status: #10b981;
+    --color-status-ping: #34d399;
 
     /* ============================================================
        SEMÁNTICOS DEL FORM
-       El error va en rojo puro y saturado, lejos del coral de marca:
-       si fuera coral, un error se leería como un elemento decorativo.
        ============================================================ */
-    --color-success: #3f8a63;
-    --color-success-bg: #e6f2ea;
-    --color-error: #d64545;
-    --color-error-bg: #fbe9e9;
-    --color-warning: #9a6a15;
-    --color-warning-bg: #f9f0dc;
+    --color-success: #10b981;
+    --color-success-bg: #ecfdf5;
+    --color-error: #ef4444;
+    --color-error-bg: #fef2f2;
+    --color-warning: #f59e0b;
+    --color-warning-bg: #fffbeb;
 
     /* Breakpoint custom para el nav */
     --breakpoint-nav: 860px;
 }
 
 /* ================================================================
-   MODO OSCURO — aquí los pasteles por fin brillan
-   Sobre el azul-noche, la menta y el coral tienen toda la fuerza
-   que les faltaba sobre fondo claro.
+   MODO OSCURO — Estilo Linear / Vercel con acento Lila tecnológico
    ================================================================ */
 @layer base {
     :root.dark {
-        /* El acento se invierte: en oscuro manda el menta */
-        --color-primary: #9bcec1;
-        --color-primary-hover: #c4e2da;
-        --color-on-primary: #151a20;
+        /* Acento lila/violeta eléctrico optimizado para dark mode de desarrollo */
+        --color-primary: #c084fc;
+        --color-primary-hover: #d8b4fe;
+        --color-on-primary: #090d16;
 
-        --color-bg-nav: rgba(31, 37, 44, 0.8);
-        --color-text-nav: #a9b5bf;
-        --color-text-nav-hover: #fafbfc;
-        --color-border-nav: rgba(250, 251, 252, 0.10);
+        --color-bg-nav: rgba(9, 13, 22, 0.85);
+        --color-text-nav: #94a3b8;
+        --color-text-nav-hover: #f8fafc;
+        --color-border-nav: rgba(255, 255, 255, 0.08);
 
-        --color-surface: var(--color-neutral-800);
+        /* Superficie elevada oscura con borde sutil (efecto tarjeta tech) */
+        --color-surface: #111827;
 
-        --color-status: #6dc99a;
-        --color-status-ping: #3f8a63;
+        --color-status: #34d399;
+        --color-status-ping: #10b981;
 
-        --color-success: #6dc99a;
-        --color-success-bg: rgba(63, 138, 99, 0.22);
-        /* Rojo puro, NO coral: tiene que distinguirse del #ffb6a6 de marca */
-        --color-error: #f05252;
-        --color-error-bg: rgba(214, 69, 69, 0.22);
-        --color-warning: #ddb264;
-        --color-warning-bg: rgba(154, 106, 21, 0.22);
+        --color-success: #34d399;
+        --color-success-bg: rgba(16, 185, 129, 0.15);
+        --color-error: #f87171;
+        --color-error-bg: rgba(239, 68, 68, 0.15);
+        --color-warning: #fbbf24;
+        --color-warning-bg: rgba(245, 158, 11, 0.15);
     }
 }
 
@@ -173,8 +157,7 @@ html.dark body {
 }
 
 /* ================================================================
-   TÍTULOS — Sora. Siguen en neutro: la jerarquía es peso y tamaño,
-   el color solo acentúa.
+   TÍTULOS — Sora.
    ================================================================ */
 h1, h2, h3, h4 {
     font-family: var(--font-display);
@@ -187,7 +170,7 @@ h1, h2, h3, h4 {
    SELECCIÓN — teñida con el acento
    ================================================================ */
 ::selection {
-    background: color-mix(in srgb, var(--color-primary) 24%, transparent);
+    background: color-mix(in srgb, var(--color-primary) 30%, transparent);
     color: inherit;
 }
 
