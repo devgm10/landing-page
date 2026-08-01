@@ -444,6 +444,97 @@ export default {
                             ],
                         },
                     },
+                    {
+                        id: 'open-data-etl-platform',
+                        title: 'OPEN DATA ETL PLATFORM',
+                        category: 'Data Engineering & Cloud',
+                        company: 'Personal Project',
+                        type: 'Cloud-Native Lab',
+
+                        shortDescription:
+                            'Experimental Data Engineering platform designed to execute ETL processes on a cloud-native architecture over AWS, integrating CI/CD, containers, Infrastructure as Code, Kubernetes, and automation best practices.',
+
+                        overview:
+                            'Open Data ETL Platform was created as a technical lab to take an ETL process from local Python execution to a modern architecture deployed on AWS. The project separates the application and infrastructure into independent repositories, allowing the full workflow to be validated from ETL development, Docker image creation, Amazon ECR publishing, and execution as a Kubernetes Job inside Amazon EKS.',
+
+                        highlights: [
+                            'Designed a modular Python ETL application applying separation of responsibilities and Object-Oriented Programming principles.',
+                            'Implemented an ETL workflow that consumes a public API, stores raw data as JSON, transforms data with Pandas, validates data quality, and generates a processed dataset.',
+                            'Built a Docker image using a multi-stage Dockerfile designed for development and production environments.',
+                            'Automated the CI/CD pipeline with GitHub Actions to run quality checks, tests, Docker image builds, and publishing to Amazon ECR.',
+                            'Designed modular infrastructure with Terraform and Terraform Cloud, separating networking, security, artifact registry, EKS, and CI/CD integration components.',
+                            'Configured secure authentication through OIDC between GitHub Actions, Terraform Cloud, and AWS, avoiding static access keys in pipelines.',
+                            'Deployed and executed the ETL as a Kubernetes Job inside Amazon EKS, using ConfigMap to decouple application configuration.',
+                            'Implemented a cost-safe approach using Terraform variables to enable and disable resources such as VPC and EKS depending on lab needs.',
+                        ],
+
+                        impact:
+                            'The project validated a realistic cloud-native foundation for Data Engineering processes, connecting software development, DevOps, Infrastructure as Code, and batch workload execution on Kubernetes. It also established the foundation to evolve into a scalable platform capable of supporting multiple reusable ETLs, orchestration with Argo Workflows, storage in an S3 Data Lake, and loading curated data into a Data Warehouse.',
+
+                        details: {
+                            architecture: 'Modular Cloud-Native Architecture',
+                            methodology: 'Iterative Lab',
+                            capabilities: [
+                                'Data Extraction from a Public API',
+                                'Python ETL Processing',
+                                'Data Quality Validation',
+                                'Multi-Stage Dockerization',
+                                'CI/CD Pipeline',
+                                'Docker Image Publishing to Amazon ECR',
+                                'Infrastructure as Code',
+                                'OIDC Authentication without Static Access Keys',
+                                'Amazon EKS Deployment',
+                                'Execution through Kubernetes Job',
+                                'Configuration through ConfigMap',
+                                'Cost Control with Terraform Variables',
+                                'Separation between Application and Infrastructure',
+                                'Foundation for Multiple Reusable ETLs',
+                            ],
+                        },
+
+                        stack: {
+                            Backend: [
+                                'Python',
+                                'Pandas',
+                                'Pytest',
+                                'Ruff',
+                                'Pydantic Settings',
+                                'HTTPX',
+                            ],
+                            DevOps: [
+                                'Docker',
+                                'GitHub Actions',
+                                'Terraform',
+                                'Terraform Cloud',
+                                'Amazon ECR',
+                                'Amazon EKS',
+                                'Kubernetes',
+                                'ConfigMap',
+                                'Kubernetes Job',
+                                'OIDC',
+                                'IAM',
+                            ],
+                            Cloud: [
+                                'AWS',
+                                'VPC',
+                                'Subnets',
+                                'NAT Gateway',
+                                'IAM',
+                                'Amazon ECR',
+                                'Amazon EKS',
+                                'Managed Node Group',
+                            ],
+                            Future: [
+                                'Argo Workflows',
+                                'Polars',
+                                'Apache Spark',
+                                'Amazon S3 Data Lake',
+                                'Data Warehouse',
+                                'Observability',
+                                'Scheduled Pipelines',
+                            ],
+                        },
+                    },
                 ],
             },
 

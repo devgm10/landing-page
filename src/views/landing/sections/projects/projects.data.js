@@ -5,6 +5,7 @@ import planifly from '@/assets/img/projects/planifly/planifly.png';
 import pcgagro from '@/assets/img/projects/pcgagro/pcgagro.png';
 import harvest from '@/assets/img/projects/harvest/harvest.png';
 import portfolio from '@/assets/img/projects/portfolio/portfolio.png';
+import openDataEtlPlatform from '@/assets/img/projects/open-data-etl-platform/open-data-etl-platform.png';
 
 export function useProjects() {
     const { tm } = useI18n();
@@ -17,4 +18,5 @@ export const PROJECT_IMAGES = {
     pcg: pcgagro,
     harvest: harvest,
     'scraping-agro': null,
+    'open-data-etl-platform': openDataEtlPlatform,
 };
