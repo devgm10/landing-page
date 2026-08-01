@@ -443,6 +443,97 @@ export default {
                             ],
                         },
                     },
+                    {
+                        id: 'open-data-etl-platform',
+                        title: 'OPEN DATA ETL PLATFORM',
+                        category: 'Data Engineering & Cloud',
+                        company: 'Proyecto Personal',
+                        type: 'Laboratorio Cloud-Native',
+
+                        shortDescription:
+                            'Plataforma experimental de Data Engineering orientada a ejecutar procesos ETL en una arquitectura cloud-native sobre AWS, integrando CI/CD, contenedores, infraestructura como código, Kubernetes y buenas prácticas de automatización.',
+
+                        overview:
+                            'Open Data ETL Platform nace como un laboratorio técnico para llevar un proceso ETL desde una ejecución local en Python hasta una arquitectura moderna desplegada sobre AWS. El proyecto separa la aplicación y la infraestructura en repositorios independientes, permitiendo validar un flujo completo desde el desarrollo del ETL, la construcción de una imagen Docker, la publicación en Amazon ECR y la ejecución como Kubernetes Job dentro de Amazon EKS.',
+
+                        highlights: [
+                            'Diseño de una aplicación ETL modular en Python, aplicando separación de responsabilidades y principios de Programación Orientada a Objetos.',
+                            'Implementación de un flujo ETL que consume una API pública, almacena datos raw en JSON, transforma información con Pandas, valida calidad de datos y genera un dataset procesado.',
+                            'Construcción de una imagen Docker mediante un Dockerfile multi-stage orientado a entornos de desarrollo y producción.',
+                            'Automatización del pipeline CI/CD con GitHub Actions para ejecutar validaciones, pruebas, build de imagen Docker y publicación en Amazon ECR.',
+                            'Diseño de infraestructura modular con Terraform y Terraform Cloud, separando componentes de red, seguridad, registro de artefactos, EKS e integración con CI/CD.',
+                            'Configuración de autenticación segura mediante OIDC entre GitHub Actions, Terraform Cloud y AWS, evitando el uso de access keys estáticas en los pipelines.',
+                            'Despliegue y ejecución del ETL como Kubernetes Job dentro de Amazon EKS, utilizando ConfigMap para desacoplar la configuración de la aplicación.',
+                            'Implementación de un enfoque cost-safe mediante variables de Terraform para encender y apagar recursos como VPC y EKS según la necesidad del laboratorio.',
+                        ],
+
+                        impact:
+                            'El proyecto permitió validar una base cloud-native realista para procesos de Data Engineering, conectando desarrollo de software, DevOps, infraestructura como código y ejecución de workloads batch en Kubernetes. Además, sentó las bases para evolucionar hacia una plataforma escalable capaz de soportar múltiples ETLs reutilizables, orquestación con Argo Workflows, almacenamiento en S3 Data Lake y carga de datos curados hacia un Data Warehouse.',
+
+                        details: {
+                            architecture: 'Arquitectura Cloud-Native Modular',
+                            methodology: 'Laboratorio Iterativo',
+                            capabilities: [
+                                'Extracción de Datos desde API Pública',
+                                'Procesamiento ETL en Python',
+                                'Validación de Calidad de Datos',
+                                'Dockerización Multi-Stage',
+                                'Pipeline CI/CD',
+                                'Publicación de Imágenes en Amazon ECR',
+                                'Infraestructura como Código',
+                                'Autenticación OIDC sin Access Keys Estáticas',
+                                'Despliegue en Amazon EKS',
+                                'Ejecución mediante Kubernetes Job',
+                                'Configuración mediante ConfigMap',
+                                'Control de Costos con Terraform Variables',
+                                'Separación entre Aplicación e Infraestructura',
+                                'Base para Múltiples ETLs Reutilizables',
+                            ],
+                        },
+
+                        stack: {
+                            Backend: [
+                                'Python',
+                                'Pandas',
+                                'Pytest',
+                                'Ruff',
+                                'Pydantic Settings',
+                                'HTTPX',
+                            ],
+                            DevOps: [
+                                'Docker',
+                                'GitHub Actions',
+                                'Terraform',
+                                'Terraform Cloud',
+                                'Amazon ECR',
+                                'Amazon EKS',
+                                'Kubernetes',
+                                'ConfigMap',
+                                'Kubernetes Job',
+                                'OIDC',
+                                'IAM',
+                            ],
+                            Cloud: [
+                                'AWS',
+                                'VPC',
+                                'Subnets',
+                                'NAT Gateway',
+                                'IAM',
+                                'Amazon ECR',
+                                'Amazon EKS',
+                                'Managed Node Group',
+                            ],
+                            Future: [
+                                'Argo Workflows',
+                                'Polars',
+                                'Apache Spark',
+                                'Amazon S3 Data Lake',
+                                'Data Warehouse',
+                                'Observability',
+                                'Scheduled Pipelines',
+                            ],
+                        },
+                    },
                 ],
             },
 
